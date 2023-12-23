@@ -1,0 +1,25 @@
+what is Lifting State Up
+=)Lifting state Up simply means to place some state in a component that is a parent of both component that need the piece of state.
+
+chatgat Explanation
+##what is Lifting State Up
+Lifting State Up in React refers to the practice of moving the state of a component upwards to a common ancestor, typically a parent component, that needs to share that state with its child components. This pattern is used when two or more components in a React application need access to the same piece of state.
+
+In simpler terms:
+
+Components are like Rooms:
+
+Imagine different parts of your React app as rooms.
+State is like Information or Stuff:
+
+Think of state as information or stuff that a room wants to know or share.
+Lifting State Up is like Sharing a Common Space:
+
+Instead of keeping that information separately in each room (component), you move it to a common space, like a shared living room (a parent component).
+Accessibility:
+
+Now, all rooms (child components) can easily access and use that shared information from the living room (parent component).
+Example:
+Suppose you have a temperature converter app with Celsius and Fahrenheit components. Instead of each component managing its own temperature value, you can lift the temperature state up to a common parent component. This way, both Celsius and Fahrenheit components can access and update the shared temperature value.
+
+In essence, Lifting State Up promotes better data flow, organization, and avoids duplication of state. It's a way of creating a shared space for information that multiple components need to interact with in your React application.

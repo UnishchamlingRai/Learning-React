@@ -6,19 +6,16 @@ const initialItems = [
 import { useState } from "react";
 
 export default function App() {
-  // function hell() {
-  //   console.log(
-  //     Array.from({ length: 10 }, (_, i) => {
-  //       console.log("n:", i + 1);
-  //     })
-  //   );
-  // }
-  // hell();
+  const [items, setItems] = useState([]);
+  function handelItems(item) {
+    setItems((items) => [...items, item]);
+  }
+  console.log(items);
   return (
     <>
       <Logo />
-      <Form />
-      <PackList />
+      <Form onItems={handelItems} />
+      <PackList items={items} />
 
       <Footer />
     </>
@@ -28,16 +25,21 @@ function Logo() {
   return <h1>FAR AWAY</h1>;
 }
 
-function Form() {
+function Form({ onItems }) {
   const [description, setDescription] = useState("h");
   const [quantity, setQuantity] = useState(5);
+
   // const [items,setItems]=useState)\()
   function submitHandler(e) {
     e.preventDefault();
-    // console.log(e);
-    // console.log(e.target.input.value);
-    console.log(description);
-    console.log(quantity);
+    if (!description) return;
+    const newItems = {
+      id: Date.now(),
+      description: description,
+      quantity: quantity,
+      packed: false,
+    };
+    onItems(newItems);
   }
   return (
     <form className="add-form" onSubmit={submitHandler}>
@@ -62,11 +64,11 @@ function Form() {
   );
 }
 
-function PackList() {
+function PackList({ items }) {
   return (
     <div className="list">
       <ul>
-        {initialItems.map((item) => (
+        {items.map((item) => (
           <Item
             quantity={item.quantity}
             description={item.description}

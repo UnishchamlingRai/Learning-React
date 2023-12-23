@@ -1,0 +1,86 @@
+what is thinking in React mean.
+=) thinking React means that you have a  very good mental model of how and when to use all the react tools linke components,state,props,general data flow, effects and many more. it also about always thinking in terms of state rather than in element mutations.
+
+Thinking in react As A process
+
+The 'Thinking in React' process:
+
+1) Break the desired UI into components and establish the conponent tree.
+=) the first step in this process is to break the desired UI into components and establish how these components are related to one and another to establish the component tree. this also includes thinking about reusability composability of components
+
+2) Build a static versioin in React (without state)
+=) after that we can start by building a static version of the application without any state and interactivity by doing this we do most of the coding upfront before having to worry about state and interactivity. it simply meanst to  Create a basic version of your app that doesn't do anything fancy. Just focus on making it look right.
+
+3) Think about state:
+-when to use state
+-Types of state:local Vs global
+-Where to place each pice of state
+=) in step three where we think about state so here we decide when we need state and what types of state we need and where to place each piece of state.
+
+4) Establish data flow
+-one-way data flow
+- child-to-parent communication
+-accessing global state
+=)then finally in forth step, we think about establishing how data flows through the application. this includes thinking about one-way data flow, child-to-parent communication and the way global state should be accessed.
+
+so these points three and four is what we collectively call state management.
+
+
+
+When you know how to "Think in React", you will be able to Answer:
+-how to break up a UI design into components?
+-how to make some componets reusable?
+-how to assemble UI from reusable components?
+-what piceses of state do I need for interactivity?
+-where to place state?(What component should "own" each pice of state?)
+-what types of state can or should I use ?
+-how to make data flow through app?
+
+
+
+## chatgpt Explanatioin 
+
+Thinking in React:
+Thinking in React means having a clear understanding of how to use various React tools, such as components, state, props, and managing the flow of data. It involves adopting a mindset that revolves around managing state rather than directly manipulating elements.
+
+Thinking in React Process:
+1)Break the Desired UI into Components and Establish the Component Tree:
+What it means: Imagine your app's user interface as a puzzle. Break it down into smaller, manageable pieces, and establish how these pieces are related to each other. Think about which parts can be reused and combined.
+In simple terms: Identify the different sections of your app and figure out how they fit together, like building with LEGO blocks.
+
+2)Build a Static Version in React (Without State):
+What it means: Create a basic, non-interactive version of your app. Focus on making it look right without worrying about dynamic changes or state.
+In simple terms: Draw a picture of your app without making things move or change. Just make it visually appealing.
+Think About State:
+
+3)When to use state: Decide when certain parts of your app need to remember or change information.
+Types of state (local vs. global): Choose whether the information should be specific to a component (local) or shared across the entire app (global).
+Where to place each piece of state: Determine which part of your app should be responsible for remembering different pieces of information.
+In simple terms: Figure out what your app needs to remember, who should remember it, and who can share it.
+
+4)Establish Data Flow:
+One-way data flow: Plan how information moves through your app in a clear direction.
+Child-to-parent communication: Decide how smaller components can talk to their parent components.
+Accessing global state: Think about how different parts of your app can share important information.
+In simple terms: Plan how information travels through your app, who talks to whom, and who holds the important data.
+
+When You Know How to "Think in React," You Can Answer:
+1)How to break up a UI design into components?
+In simple terms: Identify the different parts of your app, like pieces of a puzzle, and understand how they fit together.
+
+2)How to make some components reusable?
+In simple terms: If a piece of your app can be used in different places, make it like a LEGO block that can be used in various structures.
+3)How to assemble UI from reusable components?
+In simple terms: Put together your app by combining the different reusable pieces you created.
+
+4)What pieces of state do I need for interactivity?
+In simple terms: Identify what information your app needs to remember or change to make it interactive.
+
+5)Where to place state? (What component should "own" each piece of state?)
+In simple terms: Figure out which part of your app is responsible for remembering different things.
+
+6)What types of state can or should I use?
+In simple terms: Decide whether the information should be specific to a component or shared across the entire app.
+
+7)How to make data flow through the app?
+In simple terms: Plan how information moves in your app, like a river flowing from one place to another.

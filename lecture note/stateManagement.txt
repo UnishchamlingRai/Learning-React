@@ -1,0 +1,74 @@
+What is state management
+=)State management means to deciding when to create pieces of state,what types of state are necessary,where to place each piece of state, and how data flows throught the app.
+and to summarize all this i like to use the analogy that state management is basically giving each piece of state a home within our code base
+
+types of state:Local VS. Global State
+Local State
+=)so in react each piece of is either local state or global state.
+so local state is state that is only needed in one component or any few different components like child or sibling component
+
+we simply create a piece of local state using the useState function inside a certain component and that piece of state is then only accessible to that exact component and maybe to its child components if we pass the state using props.
+
+Global State
+=) Global state is state that many different component in the app might need access to, therefore when we define state as being global that piece of state will become accessible to every single component in the entire app. it's shared between all component and therefore, we can also call this shared state. In pratice we can define global state using React's Context API or also an external global state management library like Redux.
+
+One important guideline in state management is to always start with local state and only move to global state if you really truly need it.
+
+
+
+State: When and where to use:
+
+so it all stars with you relaizing that you need to store some data, Now when this happens, the first question to ask is ?will this data change a some point in time and if the Answer is no then all you needd is a regular vriable like const variable.
+However, if the data does need to change in the future the next question is, it is possible to compute or to calculate this new data from an existing piece of state or props if that's the case, then you should derive the state. so basically calculate it based on an already existing state or props. 
+However most of the time you cannot derive state and so in that case you need to ask yourself whether updating the state should re-render the component. now we know that updating state always re-render a component but there is actually some thing called a Ref which presists data over time like regular state but does not re-render a component so it's basically a special type of state.
+Now most of the time you actually do want state to re-render the component so what you do is to create a new piece of state using the useState function and you then place that new piece of state into the component that you are currently building and so that's the always start with local state guideline.
+And with this we have completed the decision process of when to create state,so again most of the time you will Just create a new piece of state using the useState Hook but here are also all these other cases so its important that you are aware of when to create each of them.
+
+State:where to place state
+so if the state variable thet we Just created is only used by the current component the simply leave it in theat component and your are done. so that's the end of the process right there.
+However, the state variable might also be necessary for a child component and in that case, simply pass the state down into the child component by using props. now if the state variable is also necessary for one or a few sibling component or even for a parent component of your current component then it's time to move that state to the first common parent component And in React, this is what we call lifting state up. Now finally the state variable might be needed in even more then just a few sibling which might be necessary all over the place in the component tree if then we should use global state by using React Context API or Redux.
+
+
+chat Gpt Explanatioin
+State Management:
+State management is like giving each piece of information in your app a home. It involves deciding when to create pieces of state, what types of state are needed, where to place each piece of state, and understanding how data flows through the app. In simple terms, it's about organizing and storing the data your app needs to work properly.
+
+Types of State: Local vs. Global State
+Local State:
+What it is: Information that's only needed in one specific part of your app, like a single component or a few related components (like children or siblings).
+How to create it: Use the useState function inside a specific component.
+Access: Only accessible to that exact component and possibly its child components if passed using props.
+Global State:
+What it is: Information that many different parts of your app might need. It's shared between all components.
+How to create it: Declared as global state using React's Context API or external state management libraries like Redux.
+Access: Accessible to every single component in the entire app.
+Guideline: Always start with local state and move to global state only if truly necessary.
+
+When and Where to Use State:
+Recognizing the Need for Data Storage:
+
+If Data Won't Change:
+Use a regular const variable to store the data.
+If Data Will Change:
+Ask if it can be calculated from existing state or props.
+If yes, derive the state by calculating it based on what you already have.
+If no, move to the next question.
+Determining If State Should Trigger a Re-render:
+
+If No Re-render Needed:
+Use a Ref (useRef) to persist data over time without triggering a component re-render.
+If Re-render Needed:
+Create a new piece of state using the useState function.
+Follow the guideline: start with local state.
+Decision Process:
+
+Local State: If the state is only needed by the current component.
+Passing State Down: If the state is needed for a child component, pass it down using props.
+Lifting State Up: If the state is necessary for sibling or parent components, move it to the first common parent component.
+Global State: If the state is needed widely across the component tree, consider using global state with React Context API or Redux.
+Summary in Simple Terms:
+State is like a Memory: It helps your app remember and manage information.
+Local State for Specific Needs: Use it when a piece of information is only needed in one part of your app.
+Global State for Shared Needs: Use it when many parts of your app need the same information.
+Decide When to Use State: Ask if you need to store data, if it will change, and if it should trigger a re-render.
+Decide Where to Put State: Keep it local if only one component needs it. Share it with props for child components. Move it up to a common parent for broader needs. Go global if it's needed everywhere.
