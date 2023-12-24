@@ -8,10 +8,10 @@ Here's what I learned today.
 Explanation of this Topic
 
 1) Thinking In React
-#what is thinking in React mean.
+what is thinking in React mean.
 =) Thinking React means that you have a  very good mental model of how and when to use all the react tools linke components,state,props,general data flow, effects and many more. it also about always thinking in terms of state rather than in element mutations.
 
-#The 'Thinking in React' process:
+The 'Thinking in React' process:
 a) Break the desired UI into components and establish the conponent tree.
 =) the first step in this process is to break the desired UI into components and establish how these components are related to one and another to establish the component tree. this also includes thinking about reusability composability of components
 
@@ -30,7 +30,7 @@ d) Establish data flow
 -accessing global state
 =)then finally in forth step, we think about establishing how data flows through the application. this includes thinking about one-way data flow, child-to-parent communication and the way global state should be accessed.
 
-#When you know how to "Think in React", you will be able to Answer:
+When you know how to "Think in React", you will be able to Answer:
 i)  how to break up a UI design into components?
 ii) how to make some componets reusable?
 iii)how to assemble UI from reusable components?
@@ -41,10 +41,10 @@ vii)how to make data flow through app?
 
 2)State Management in React
 =)
-#State Management:
+State Management:
 State management is like giving each piece of information in your app a home. It involves deciding when to create pieces of state, what types of state are needed, where to place each piece of state, and understanding how data flows through the app. In simple terms, it's about organizing and storing the data your app needs to work properly.
 
-#Types of State: Local vs. Global State
+Types of State: Local vs. Global State
 a)Local State:
 What it is: Information that's only needed in one specific part of your app, like a single component or a few related components (like children or siblings).
 How to create it: Use the useState function inside a specific component.
@@ -86,7 +86,7 @@ Decide When to Use State: Ask if you need to store data, if it will change, and 
 Decide Where to Put State: Keep it local if only one component needs it. Share it with props for child components. Move it up to a common parent for broader needs. Go global if it's needed everywhere.
 
 3)Lifting State Up
-#what is Lifting State Up
+what is Lifting State Up
 Lifting State Up in React refers to the practice of moving the state of a component upwards to a common ancestor, typically a parent component, that needs to share that state with its child components. This pattern is used when two or more components in a React application need access to the same piece of state.
 
 Github Account Link:https://lnkd.in/dezG-waY
@@ -115,43 +115,34 @@ Today's Learnings:
 Explanation of this Topic
 
 1) Thinking In React
-#what is thinking in React mean.
+what is thinking in React mean.
 =) Thinking React means that you have a  very good mental model of how and when to use all the react tools linke components,state,props,general data flow, effects and many more. it also about always thinking in terms of state rather than in element mutations.
 
-#The 'Thinking in React' process:
+The 'Thinking in React' process:
 a) Break the desired UI into components and establish the conponent tree.
 =) the first step in this process is to break the desired UI into components and establish how these components are related to one and another to establish the component tree. this also includes thinking about reusability composability of components
 
 b) Build a static versioin in React (without state)
-=) after that we can start by building a static version of the application without any state and interactivity by doing this we do most of the coding upfront before having to worry about state and interactivity. it simply meanst to  Create a basic version of your app that doesn't do anything fancy. Just focus on making it look right.
+=) it simply means to  Create a basic version of your app that doesn't do anything fancy. Just focus on making it look right.
 
 c) Think about state:
 -when to use state
 -Types of state:local Vs global
 -Where to place each pice of state
-=) in step three where we think about state so here we decide when we need state and what types of state we need and where to place each piece of state.
+
 
 d) Establish data flow
 -one-way data flow
 -child-to-parent communication
 -accessing global state
-=)then finally in forth step, we think about establishing how data flows through the application. this includes thinking about one-way data flow, child-to-parent communication and the way global state should be accessed.
 
-#When you know how to "Think in React", you will be able to Answer:
-i)  how to break up a UI design into components?
-ii) how to make some componets reusable?
-iii)how to assemble UI from reusable components?
-iv) what piceses of state do I need for interactivity?
-v)  where to place state?(What component should "own" each pice of state?)
-vi) what types of state can or should I use ?
-vii)how to make data flow through app?
 
 2)State Management in React
 =)
-#State Management:
+State Management:
 State management is like giving each piece of information in your app a home. It involves deciding when to create pieces of state, what types of state are needed, where to place each piece of state, and understanding how data flows through the app. In simple terms, it's about organizing and storing the data your app needs to work properly.
 
-#Types of State: Local vs. Global State
+Types of State: Local vs. Global State
 a)Local State:
 What it is: Information that's only needed in one specific part of your app, like a single component or a few related components (like children or siblings).
 How to create it: Use the useState function inside a specific component.
@@ -163,37 +154,9 @@ How to create it: Declared as global state using React's Context API or external
 Access: Accessible to every single component in the entire app.
 Guideline: Always start with local state and move to global state only if truly necessary.
 
-When and Where to Use State:
-Recognizing the Need for Data Storage:
-If Data Won't Change:
-Use a regular const variable to store the data.
-If Data Will Change:
-Ask if it can be calculated from existing state or props.
-If yes, derive the state by calculating it based on what you already have.
-If no, move to the next question.
-Determining If State Should Trigger a Re-render:
-
-If No Re-render Needed:
-Use a Ref (useRef) to persist data over time without triggering a component re-render.
-If Re-render Needed:
-Create a new piece of state using the useState function.
-Follow the guideline: start with local state.
-
-Decision Process:
-Local State: If the state is only needed by the current component.
-Passing State Down: If the state is needed for a child component, pass it down using props.
-Lifting State Up: If the state is necessary for sibling or parent components, move it to the first common parent component.
-Global State: If the state is needed widely across the component tree, consider using global state with React Context API or Redux.
-
-Summary in Simple Terms:
-State is like a Memory: It helps your app remember and manage information.
-Local State for Specific Needs: Use it when a piece of information is only needed in one part of your app.
-Global State for Shared Needs: Use it when many parts of your app need the same information.
-Decide When to Use State: Ask if you need to store data, if it will change, and if it should trigger a re-render.
-Decide Where to Put State: Keep it local if only one component needs it. Share it with props for child components. Move it up to a common parent for broader needs. Go global if it's needed everywhere.
 
 3)Lifting State Up
-#what is Lifting State Up
+what is Lifting State Up
 Lifting State Up in React refers to the practice of moving the state of a component upwards to a common ancestor, typically a parent component, that needs to share that state with its child components. This pattern is used when two or more components in a React application need access to the same piece of state.
 
 For further insights, you can view my code at github repo:
@@ -202,3 +165,5 @@ Github Account Link:https://lnkd.in/dezG-waY
 My portfolio:https://lnkd.in/drcpB6Zu
 
 hashtag#ReactLearningChallenge hashtag#ReactJS hashtag#WebDevelopment hashtag#CodingJourney hashtag#LearnToCode hashtag#DeveloperCommunity hashtag#Day3
+
+

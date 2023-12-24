@@ -1,0 +1,135 @@
+
+Explaination what is separations of concepts
+Certainly! Let's break it down into simpler terms.
+
+**Explanation in Simple English:**
+Okay, so imagine you're building a website, right? Traditionally, when people started making websites, they kept different things like the main content, the style (how it looks), and the interactive parts (like buttons that do things) in separate files. This was like having different specialists for different jobs.
+
+Now, as websites became more complex and interactive, especially with single-page applications, the JavaScript part (the code that makes things happen) started taking more control. It began telling the website how to look and what to show.
+
+So, React came along and said, "Why not mix all these things together?" It introduced JSX, a way to write code that combines HTML, CSS, and JavaScript all in one. This way, everything a part of a website needs – how it looks, what it does, and the data it shows – is all kept together in one neat package called a component.
+
+People initially didn't like this idea because it seemed messy. But React said, "No, it's actually a good thing!" It's like having a little team (a component) that handles one specific thing on the webpage. Each team has its own job, and they keep everything they need close together.
+
+So, separation of concerns now isn't about keeping everything in different files. It's about having these small teams (components) that handle one specific job each. Each team knows its stuff well and doesn't interfere with what other teams are doing.
+
+**What is Separation of Concerns:**
+
+Separation of concerns is a programming principle that suggests breaking a program into distinct sections or components, each responsible for a specific part of the application. In simpler terms, it's about keeping different tasks or concerns separate so that each part of your code is responsible for one thing and doesn't get tangled up with other things.
+
+In the context of web development, traditional separation of concerns might mean having separate files for HTML, CSS, and JavaScript. With modern frameworks like React, the idea evolved to have components that encapsulate the structure (HTML), style (CSS), and behavior (JavaScript) of a specific part of a webpage. Each component focuses on one concern, making the code more modular and easier to understand.
+
+
+
+
+
+
+
+
+//SUBTITLE
+At this point,
+we have used JSX to describe the appearance
+of some components
+and we have also used some JavaScript inside of them.
+And so now that we have a tiny bit
+of experience in writing components, I want to take a minute
+and go back to the fact that JSX combines
+HTML, CSS, and JavaScript into one single block of code.
+Because you might be wondering,
+why did React come up with this idea in the first place?
+So why not just keep HTML, CSS, and JavaScript
+in separate places, like we have always done before?
+And this might sound like a trivial question,
+something you think is not really relevant at all,
+but it's actually deeply relevant to understand why
+React was completely designed around components.
+And let's understand this topic from the very beginning.
+So from the rise of interactive single-page applications.
+So before single-page apps, we always had one file for HTML,
+one for JavaScript, and one for CSS.
+So basically, one technology per file.
+That was our traditional separation of concerns.
+And I'm pretty sure that just like me,
+this is how you first learned web development.
+However, as pages got more and more interactive,
+they became single-page applications,
+where the JavaScript started to determine the user interface
+and the content in general.
+Or in other words,
+JavaScript became more and more in charge of the HTML.
+And we can see that here in this really small code example,
+where the content and the presentation of these
+HTML elements are really completely determined
+by the JavaScript code.
+They are, in fact, tightly coupled together.
+So the HTML doesn't even make sense
+without the JavaScript here.
+Now the details of this code are really not important.
+So if you can't read this code, that's no problem at all.
+My point here is that if the JavaScript is in charge
+of the HTML anyway, so if the logic and the UI are so
+tightly coupled together, then why should we keep them
+separated in these different files
+and in different code blocks?
+Well, the answer to that question
+is what gave us React components and JSX.
+So the fact that logic and UI are so coupled
+in modern web applications is really the reason why
+a React component contains the data, the logic,
+and the appearance of one piece of the UI.
+In fact, it's the fundamental reason
+why React is all about components.
+And the same is actually also true for
+most other modern front-end frameworks.
+Now returning to some code,
+in this React example, we can see how JavaScript
+and HTML markup live very happily together
+in this one single component.
+So this component has some JavaScript logic,
+it has JSX and then inside that JSX,
+there is yet another block of JavaScript,
+which, in turn, has even more JSX inside of it.
+So everything is mixed together
+but it all still works really well.
+So content and logic are tightly coupled together
+and so it makes sense that they are co-located here.
+And co-located simply means that things that change together
+should be located as close as possible together.
+And in the case of React apps, that means that instead
+of one technology profile, we have one component profile.
+So one component that contains data logic and appearance,
+all mixed together.
+Now when React and JSX first came out a long time ago,
+many, many people just hated the way that JSX looks like.
+And they hated that we are throwing separations
+of concerns out of the window.
+But actually, are we really?
+Is there really no separation of concerns in React?
+Well, I think that the people who say
+that React has no separation of concerns got it all wrong.
+Because React does actually have separation of concerns.
+It's just not one concern per file,
+as we had traditionally but one concern per component.
+So each component is, in fact,
+only concerned with one piece of the UI.
+Then within each of these components,
+of course, we still have the three concerns of HTML,
+CSS, and JavaScript all mixed up, as we have been discussing.
+So compared to the traditional separation of concerns,
+this is a completely new paradigm
+that many people were really not used to in the beginning.
+But now, many years later,
+we all got used to this and it works just great.
+So having all the information about a certain component
+in one single place,
+really does work in an amazing way.
+Now right.
+So this was a long lecture,
+longer than I had expected,
+just to arrive at this conclusion
+that React does actually have separation of concerns.
+Just a different separation of concerns.
+But I still hope that you liked how we arrived
+at that conclusion, over the course of this video.
+Because hopefully, this gave you a lot
+of additional fundamental React knowledge.

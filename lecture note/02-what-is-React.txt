@@ -1,0 +1,179 @@
+Alright, let's break it down in simpler terms:
+
+---
+
+Imagine you're building a house with LEGO bricks. Each LEGO piece represents a part of your website, like buttons, text boxes, and images. Now, instead of placing each LEGO piece one by one, you have a magical assistant called React that helps you organize and arrange them effortlessly.
+
+React is like a superhero that makes it easy to create and update your website. Here's how:
+
+1. **LEGO Components:** In React, everything is divided into components, like different LEGO pieces. These components could be a button, a search bar, or any part of your webpage.
+
+2. **Building with Components:** Just as you build a LEGO house by combining different pieces, you create your webpage by combining React components. It's like assembling a puzzle where each piece does a specific job.
+
+3. **Making Things Pretty with JSX:** React uses a special language called JSX, which is like a set of instructions for your magical assistant. It's a simple way of saying, "Hey React, here's how I want my webpage to look!"
+
+4. **Reacting to Changes:** When something in your house (or webpage) changes, React is quick to notice. Suppose you add more rooms to your LEGO house; React updates the webpage to show those changes without you having to do much.
+
+5. **No Direct LEGO Handling:** You don't have to worry about placing each LEGO piece in the right spot. React takes care of it for you. It's like telling your assistant what you want, and it magically happens.
+
+6. **Popular and Friendly:** Many builders (developers) around the world love using React because it's like having a popular and helpful friend. It's widely used, and there's a big community of builders ready to help each other out.
+
+7. **Backed by Meta (formerly Facebook):** Think of React as a tool created by a skilled inventor named Jordan Walke, who worked at Meta (formerly Facebook). It started as a tool for building Facebook's newsfeed and chat app but became so good that everyone wanted to use it.
+
+8. **Always Improving:** React keeps getting better. It's like having a superhero constantly upgrading their powers. The React community and Meta ensure it stays at the forefront of web development.
+
+So, React is your friendly assistant in the world of web development, helping you build awesome things without the hassle. Now that you have a basic idea, let's dive into some hands-on work and make your own magical LEGO creations!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SUBTITLE
+Sure, let me summarize the spoken content without the timestamp:
+
+---
+
+So now that we know why we need a JavaScript framework in the first place, let's start by learning about the most popular framework out there, React.
+
+So in this lecture, we will get a high-level overview of what React actually is and how it works.
+
+According to the official React documentation, React is a JavaScript library for building user interfaces.
+
+Now, that's something, but it really isn't that helpful, is it?
+
+So let's extend this definition by a bit so that it becomes more helpful, or, should I say, a little bit more crazy like this.
+
+In this slightly modified definition, React is an extremely popular, declarative, component-based, state-driven, JavaScript library for building user interfaces, created by Facebook.
+
+And this is actually a lot more helpful because now, we can deconstruct this definition and learn about what React actually is, step by step.
+
+Starting with component-based design, React is all about components such as buttons, input fields, search bars, and so on.
+
+Components are the building blocks of user interfaces in React.
+
+And in fact, basically all React does is to take components and draw them on a webpage. That's it.
+
+We build complex UIs in React by building multiple components and then combining these components like LEGO pieces.
+
+For example, to create a complex application like Airbnb. Here we have exactly the same components that we saw earlier, but all combined into a complex UI.
+
+Now, another thing that we do with components is to reuse them. For example, here in the results panel, there are multiple listings that look quite similar. And so we can create a listing component and then reuse it three times here, simply adjusting the data a little bit.
+
+Since we build complex UIs by combining multiple components, each component must have all the information about what it looks like, right?
+
+So in order to describe what each component looks like and how it works, we use a special declarative syntax called JSX.
+
+And declarative simply means that we tell React what a component and ultimately the entire UI should look like based on the current state.
+
+React is basically a huge abstraction away from the DOM so that we never have to work with a DOM directly as we would with vanilla JavaScript.
+
+We simply tell React what we want to happen when some data changes, but not how to do it. And again, we do that using JSX.
+
+JSX is basically a syntax that combines parts of HTML, CSS, JavaScript, and it even allows us to reference other React components.
+
+The declarative nature of React is an essential concept that, of course, we will really dive into later.
+
+Now you might wonder, if we never touch the DOM, then how does React update the UI?
+
+Well, that's where the concept of state comes into play.
+
+Remember that the main goal of React is to always keep the UI in sync with data. And from now on, let's actually call that data, state.
+
+For example, an array of apartments on Airbnb.
+
+Based on our initial state, React will render a user interface using the components that we wrote using JSX.
+
+Then based on some event like a button click, the state might change. For example, more data about apartments might be loaded from an API.
+
+Whenever the state changes, we manually update the state in our app, and React will then automatically re-render the user interface to reflect that latest state, or in other words, React reacts to state changes by re-rendering the UI.
+
+And that is, in fact, the whole reason why React is called React in the first place.
+
+Now, there's always been some debate over whether React is actually a framework or just a library.
+
+Well, the short answer is that React is actually just a library, even though I keep calling it a framework.
+
+And the reason for that is that React itself is really only the so-called view layer.
+
+If we want to build a complete real-world application, we need to choose multiple external libraries to add to our project.
+
+To address this, there are actually multiple frameworks that have been built on top of React.
+
+Frameworks that include all these functionalities that React is missing out of the box, and the most popular ones are called Next.js and Remix.
+
+But again, more about all that later in the course.
+
+Now, moving on.
+
+Besides all the great features that we've been talking about, maybe the biggest reason to choose React over all the other frameworks that are similar is because React is extremely popular.
+
+According to the weekly download numbers from npm, React is by far the most-used framework.
+
+And the difference between React and the other ones only seems to be growing.
+
+So React really isn't going anywhere.
+
+A big reason for that is that many large companies have adopted React a long time ago.
+
+And so now, more and more smaller companies all over the world are following in their footsteps.
+
+This means that all these companies now need React developers for their teams, which, of course, has created a huge worldwide job market with a high demand for qualified React developers.
+
+And these are not just any jobs. They're usually well-paying jobs.
+
+Even another positive outcome of React's huge popularity is that now, there is a very large and active React developer community, which means that there are always gonna be lots of tutorials, Stack Overflow questions and answers, and also lots of support given to other React developers.
+
+If you ask me, this is actually one of the strongest benefits of using React right now.
+
+Also because this huge community has grown a truly gigantic third-party library ecosystem around React.
+
+And so now, you can integrate countless useful libraries and tools into your own React applications.
+
+And now, our last topic is that React was created by Facebook.
+
+Well, more specifically, React was created in 2011 by Jordan Walke, who is an engineer who was working at Facebook at the time.
+
+So that's why we say that React is backed by Facebook or now, by Meta.
+
+React was first used on the newsfeed and also the chat app. And from there, it spread out to the entire Facebook and also the Instagram applications.
+
+Then in 2013, React was open-sourced for everyone to use it, and the rest is history because React has truly and completely transformed front-end web development, not only by developers that are using React itself, but because many other modern frameworks were created as a response, which really changed the industry forever.
+
+Okay, so to summarize, React is really good at two things.
+
+First, rendering components on a webpage as a user interface based on their current state.
+
+And second, React is really good at keeping the user interface in sync with state by re-rendering, or in other words, by reacting when the state of one of the components changes.
+
+As you will see later, React does all this by employing something called a virtual DOM, a Fiber tree, one-way data flow, and many other techniques that we will study throughout this course.
+
+And so now that you have a rough overview of what React actually is, let's set up our development environment so that we can start writing some serious code finally.

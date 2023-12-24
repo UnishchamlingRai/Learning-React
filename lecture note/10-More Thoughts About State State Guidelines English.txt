@@ -1,0 +1,32 @@
+Explaination
+Sure, let's break down the information in an easier way:
+
+When we talk about "state" in React, we're talking about keeping track of information that can change over time. Imagine it as the current condition or data of a part of your app.
+
+Now, in React, each piece of your app can have its own state, even if there are many similar pieces on the same page. For example, think of a counter on a website. Each counter can keep track of its own score separately.
+
+Here's a simple idea: if something in your app needs to change or be different at some point, you can use "state" to manage that change. For instance, if you have a pop-up window that can be open or closed, you can use state to know whether it's open or closed.
+
+Here are some helpful tips:
+
+1. **Create State for Changing Data:** If there's some information in your app that will change as people use it, like a score or an open/closed window, use state for that.
+
+2. **Use State for Dynamic Things:** If you want something in your app to be dynamic, meaning it can change, create a piece of state for it. For example, if you want a button to show or hide something, use state.
+
+3. **Imagining Changes Over Time:** Picture your app like a story. Each change in state is like a new chapter. So, when you build your app, think about how it will look and behave at different points in its "story."
+
+4. **Common Mistake:** Don't use state for everything. Some things don't need to make your app change its appearance or behavior. Save state for the things that truly need to be dynamic.
+
+Understanding and using state is a big part of learning React. Once you get the hang of it, building React apps becomes much easier!
+
+
+
+
+
+
+
+
+
+//SUBTITLE
+
+As we finish this first dive into state, I want to share a few more important thoughts, or ideas, about state, as well as some practical guidelines. So, first of all, there is one important technical detail that you should be aware of, and this might seem obvious but it's still worth mentioning. So, what I'm talking about is the fact that each component really has, and manages, its own state. So, even if we render the same component multiple times on one page, each of these component instances will operate independently from all the other ones. So, in this example, the three counter components all start with a piece of state called "Score," which is set initially to zero. Then, if one of the buttons is clicked, that increases the score by one for each click, but only in that component. The state in all the other components stays the same. Now, if we analyze everything that we just learned about state, we can come to the conclusion that we can basically think of the entire application view, so, the entire user interface, as a function of state. Or, in other words, the entire UI is always a representation of all the current states in all components. Taking this idea even one step further, a React application is fundamentally all about changing state over time, and of course, also, correctly displaying that state at all times. This is really what the declarative approach to building user interfaces is all about. Instead of viewing a UI as explicit DOM manipulations, with state, we now view a UI as a reflection of data changing over time. And, as you know by now, we describe that reflection of data using state, event handlers, and JSX. So, we describe the UI, React does the rest. Now, this might all sound a bit philosophical at this point in your journey, but trust me, as you become more and more experienced in building React apps and working with state, you will truly and deeply understand everything I just said here. Now, okay, and now to finish, let me give you a few guidelines on how to use state in practice. Practical guidelines are always what students like the most, and here, this also kind of serves as a summary of state in general. These guidelines are for you to keep as a reference, so, there is a lot of text here that I will just quickly go over now. First of all, you should create a new state variable for any data that a component should keep track of over time. And the easy way of figuring this out is to think of variables that need to change at some point in the future. So, if you're used to building apps in Vanilla JavaScript, those would be variables defined with "let" or with "var," or also an array, or object, that you mutate over the application's lifecycle. So, in React, you use state for those. Another way of figuring out when you need state is this. Whenever you want something in a component to be dynamic, create a piece of state related to that "thing," and then update the state when the "thing" should change, or, in other words, when you need it to be dynamic. Now, since this "thing" is a bit abstract, let's think of a modal window that can be either open or closed. So, for a modal window, we can create a state variable called, "isOpen," that will keep track of whether the model is currently open or not. Then, when "isOpen" is true, we display the window on the screen, and if it's false, we hide it. Simple, right? So, whenever you want to change the way a component looks like, or the data that it displays, just update its state, which you usually do inside an event handler function. Now, when you're actually building your components, it's gonna be useful to always imagine the component's view, so the component rendered on the screen, as a reflection of state changing and evolving over time. Finally, there is one common mistake that many beginners make, which is to use state for every single variable that you need in a component, but that's really not necessary. Do not use state for variables that should not trigger a re-render, okay? Because that will just cause unnecessary re-renders which can cause performance issues. It's very common to need some variables that are not state. And so for those, you can just use regular variables defined with "const." But, we will come back to this in the next section. All right, so this is my first set of guidelines about state, which should be more than enough for now. If you truly internalize these, then building React applications in the future should be a lot easier for you. I say this because I really believe that mastering state is the most difficult part of learning React, but once you overcome this hurdle and truly internalize when you need state and how it all works, it will unlock React development for you. And so, that's why I spent so much time here showing you how state works.

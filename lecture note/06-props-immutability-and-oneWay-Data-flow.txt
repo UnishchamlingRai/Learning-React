@@ -1,0 +1,167 @@
+
+What is props-immutability-and-oneWay-Data-flow.
+
+Certainly! Let's break down the text into simpler terms:
+
+1. **Props and Their Use:**
+   - In React, we use something called "props" to pass information from one part of our app (the parent) to another part (the child).
+   - Think of props like settings that help control how something in our app looks or works.
+
+2. **Props Types:**
+   - We can use props to pass different kinds of information: single values, lists, functions, and even other parts of our app.
+
+3. **Props Rules - Immutable:**
+   - Props have a rule: they are "immutable," which means we can't change them. They are like information tags that can only be read, not modified.
+   - If we need to change information, we use something else called "state," which is like the app's memory.
+
+4. **Why Props are Immutable:**
+   - Imagine props as a message from one person (parent) to another (child). If we change the message, it could cause confusion. So, to keep things clear, React says: "Props are read-only."
+
+5. **Side Effects and Pure Functions:**
+   - React likes "pure functions" – these are functions that don't cause confusion or side effects. Side effects are like unexpected changes that can mess up our app.
+
+6. **One-Way Data Flow:**
+   - In React, information flows in one direction – from the top (parent) to the bottom (child) of our app.
+   - This one-way flow makes our app more predictable and easier to understand.
+
+7. **Advantages of One-Way Data Flow:**
+   - Predictability: We know where our information comes from.
+   - Debugging: If something goes wrong, it's easier to figure out.
+   - Efficiency: One-way flow is faster and works well for most apps.
+
+8. **Looking Forward:**
+   - Later, we'll learn a clever way to send information back up from a child to a parent. But for now, remember the one-way flow principle.
+
+9. **Final Thoughts:**
+   - Learning React might seem like a lot, but take it one step at a time. Soon, everything will make sense and fit together neatly in your mind.
+
+
+
+
+
+
+//SUBTITLE
+So now that we already know what props are
+and how we use them in practice, let's quickly review them
+and even learn some important additional things about props.
+
+So as we just learned, we use props in React to pass data
+from parent components to child components.
+So essentially to pass information down the component tree.
+This means that essentially we use props to communicate
+between parent and child components.
+Therefore, props are an essential React tool
+to configure and also to customize components.
+So we can imagine props as settings that we
+can use to make a parent component control how
+its child component should look like and how it should work.
+So in that regard, props are just
+like arguments passed to regular JavaScript functions.
+Also, we can pass anything into JavaScript functions, right?
+And so the same is actually true for props.
+So we can pass any type of value as a prop.
+So we can pass single values, array objects, functions
+and even other React components, which is a really
+powerful technique that we will explore a bit later.
+
+So those are the fundamentals of props in React
+but now let's go dig a little bit deeper.
+But before we do that, we need to first take a step back.
+So at this point of the course, we have already learned
+about the components appearance and its logic,
+so by writing both JSX
+and JavaScript logic inside components.
+Now, I've also been saying since the beginning
+of the course that React renders a component based
+on its current data and that UI will always be kept in sync
+with that data, right?
+But now it's time to get a bit more specific
+about what that data actually is.
+So this data that React users to render a component is made
+out of props and state
+and actually there are even more types of data
+but what matters for now are props and state.
+Now, state is basically internal component data
+that can be updated by the component's logic,
+so by the component itself, while props
+on the other hand is data that is coming
+from the parent component,
+so from the outside basically.
+So it's the parent component who owns that data
+and so therefore it cannot be modified
+by the child component.
+Instead, props can only be updated
+by the parent component itself.
+And this brings us to one of the few strict rules
+that React gives us, which is that props are immutable.
+So they cannot be changed, they are read-only.
+And if at any point you feel like you need to mutate props
+actually what you need is state
+because state is for data that changes over time
+as we will learn soon.
+But why is that actually?
+Why are props immutable in React?
+Well, to start, props are just an object.
+Therefore, if you change the props object in your component
+you would also affect the parent component
+because that's just how objects work in JavaScript.
+So when you copy an object and mutate the copy,
+the original object will also be mutated.
+Now, if you change an object that is located
+outside of the component function,
+that function has then created a so-called side effect.
+So in general,
+a side effect happens whenever you change some
+data that's located outside of the current function.
+React, however, is all about pure functions,
+so functions without side effects,
+at least when it's about a components data.
+So components have to be pure in terms of their
+props and state because this allows React to
+optimize your application and it avoids some strange
+bugs that can appear when you manipulate external data.
+And in fact, we can extend this idea of immutability
+to React development in general.
+So a component should never mutate any data that
+we write outside of its function scope
+like in this example here.
+And now to finish, it's important to understand
+that React uses a so-called one-way data flow.
+Now, what does that have to do with props?
+Well, in simple terms, one-way data flow means that
+in React applications, data can only be passed from parent
+to child components, which happens by using props.
+So in other words, data can flow from parents to children
+but never the opposite way.
+And therefore we have a one-way data flow, so only from top
+to bottom of the component tree.
+Now, this may sound obvious to you,
+but other frameworks such as Angular actually employ
+a two-way data flow.
+So if you know one of those frameworks already
+this might be quite a change for you.
+But there is actually a reason or multiple reasons why
+React uses a one-way data flow like this.
+The first is that it makes applications way
+more predictable and way easier to understand
+for developers because it is just a lot easier
+to understand where the data is coming from
+if it only flows in one direction.
+In a similar vein,
+it makes applications way easier to debug,
+again because we have way more control over the data
+and we understand exactly how that data flows around.
+And finally, two-way data binding is usually less efficient
+so it's less performant to implement.
+Okay, so that sounds great, but you might be wondering,
+"What if I actually wanted to pass some data, for example
+some state, up to a parent component?"
+Well, there is actually a very clever way to do that
+but as so often we will learn about that a bit later.
+And actually in the next section, to be specific,
+so it's not far away.
+There are just so many moving pieces
+in learning a whole library like React,
+that of course you can't learn it all at once,
+but trust me, you will get there
+and then everything will fall nicely into place at the end.

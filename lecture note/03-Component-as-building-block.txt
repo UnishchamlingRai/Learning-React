@@ -1,0 +1,65 @@
+
+#Explaination of components as building blocks
+Sure, let's break it down in simpler terms:
+
+"Okay, imagine you're building something with Lego blocks. In React (which is like a tool for building websites), instead of Lego blocks, we use 'components.' These components are like building pieces for a webpage.
+
+So, every part of a webpage is made up of these components. Whether it's a video player, a menu, or a list of questions, each is a separate component.
+
+Think of components like puzzle pieces that you put together to create a webpage. And just like you might have different pieces in a puzzle, each component can have its own data (information), logic (how it works), and appearance (how it looks).
+
+Now, here's a cool thing: you can use these components multiple times. For example, if you have a question component, you can use it for different questions by giving it different information. We call this information 'props.'
+
+To make it easier to understand, we create something called a 'component tree.' It's like a map that shows how all these components are connected or nested inside each other.
+
+Imagine building a treehouse. You have the main structure (parent), and then you might have smaller parts attached to it (children). In React, we use the terms 'parent component' and 'child component' to talk about these relationships.
+
+So, in a nutshell, React is all about using these components to build awesome webpages. We'll get into more details later, but for now, think of it like assembling Lego blocks to create something cool!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SUBTITLE
+Certainly! Here's the text without the numbers:
+
+"So as I have mentioned a few times already, React is all about components, but now let's formally learn what React components are and why they are so important.
+
+So components are the most fundamental concept in React, simply because React applications are, in fact, entirely made out of components. When you look at any React app, there's nothing that is not a component or at least not inside of some component.
+
+Therefore, I like to say that components are the building blocks of any user interface in React. In fact, basically all React does is to take components and draw them onto a webpage, so onto a user interface, or UI for short.
+
+Now that sounds simple, but it's actually the main job of React. In more technical terms, React renders a view for each component, and all these views together make up the user interface. So we can also think of a component as being a piece of the user interface, right?
+
+Now, one key property of components is that each component has its own data, JavaScript logic, and appearance. So basically, each component describes how it works and what it looks like, which makes them such a great way of building user interfaces.
+
+And speaking of building user interfaces, based on what we have just learned, it makes sense that in React, we build complex UIs like this one by building multiple components, and then combining these components like Lego pieces.
+
+So here we can identify components like a video player, a menu, this questions list, and also this part where we can refine the displayed questions. So those are like the big components, but we can identify many other smaller components in this UI as well, like for example, these filters right here.
+
+And what you can see is that this filter is inside the refined questions component, right? So actually one thing that we do all the time is to place components inside of other components, or in other words, we nest components inside each other.
+
+So nesting components is a key aspect of using components in React along with component reusability. Now, notice how we have three similar questions in the questions list, and so we can create one question component, and then reuse it three times here.
+
+Now, of course, the data for each of them is different, but we can easily pass different data into different question components by using something called props, which we're gonna talk about later.
+
+So whenever we need some duplication in our UI, we create a new component, and we use it as many times as necessary. So as you can see, one crucial skill that you will learn throughout this course is how to break a design like this into its components.
+
+Now, one thing that helps with that and with analyzing the components that we create is a component tree like this one. So this shows the hierarchy that exists between the components that make up the user interface, and it makes it really easy to understand how all of these components are nested inside each other and really how they relate to one another.
+
+We can also clearly see relationships between components, like the refined questions being the parent component of filters, or the other way around that filters is a child component of refined questions. And we use these terms, so parent and child component, all the time in React.
+
+And so it's important to understand what they mean. And so a component tree like this is perfect to understand these kinds of relationships between components, and I think that this is all you need to know about components for now. We will go really deep into some important concepts like reusability later, but for now, let's start to put some of these concepts into practice."
