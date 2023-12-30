@@ -1,0 +1,78 @@
+//Chat Gpt Explanation
+Sure, let's break it down in simpler terms:
+
+---
+
+Okay, imagine we're building something cool with React, like a website or app. React is like our tool that helps us make things happen on the screen.
+
+Now, making things with React involves two main steps. First, we create different parts called components. These components are like building blocks, and we put them together to create our website or app.
+
+The second step is where React does its magic. When we want to show something new or change what's on the screen, React goes through a process. It's like a series of steps.
+
+**Step 1: Triggering a "Render"**
+
+Imagine you're telling React, "Hey, something changed! Let's update what's on the screen." This can happen when we start our app for the first time (that's the initial render) or when something inside the app changes (that's a re-render).
+
+**Step 2: Figuring Out What to Change**
+
+Now, React looks at all the building blocks (components) we made. It figures out which parts need to change to show the new stuff. This step is called the "Render Phase." But wait, it doesn't actually change anything on the screen yet.
+
+**Step 3: Making the Changes**
+
+Once React knows what needs to change, it goes into action. It makes the actual changes in what we call the "Commit Phase." It's like saying, "Okay, let's update the screen now." This is where the real magic happens.
+
+**Step 4: Showing the Changes**
+
+Lastly, our web browser notices these changes, and it repaints the screen. Imagine it like giving a fresh coat of paint to the updated parts. This step doesn't involve React; it's just the browser making sure we see the new stuff.
+
+So, in simple terms, React helps us build things, and when we want to change those things, React goes through these steps to make it happen. It's like a team effort between us, React, and the browser!
+
+
+
+
+
+
+///SUBTITLE
+Sure, here's a simplified version without the timestamps and with only the spoken words:
+
+---
+
+We are now ready to finally learn about how exactly React renders our applications behind the scenes.
+
+Now there is so much to learn here that I split up this lecture into three parts. So it's this video and the next two ones. This one serves more as an overview, and then in the next two videos, we're gonna go really deep into some React internals.
+
+And let's start with just a small recap so that we're all on the same page.
+
+So as we build our applications, what we're really doing is building a bunch of components. We then use these components inside other components as many times as we want, which will cause React to create one or more component instances of each component. So these are basically the actual physical components that live in our application and hold state and props.
+
+Now, as React calls each component instance, each JSX will produce a bunch of React `createElement` function calls, which, in turn, will produce a React element for each component instance. And so this React element will ultimately be transformed to DOM elements and displayed as a user interface on the screen.
+
+So we have a pretty good understanding of the initial part of this process, so of transforming components to React elements. However, what we don't understand yet is the second part of the process, how these React elements actually end up in the DOM and displayed on the screen.
+
+Well, luckily for us, that is exactly what this series of lectures is all about.
+
+So in this lecture, we're gonna have a quick overview of each of the phases involved in displaying our components onto the screen. Then we're gonna zoom into each of these phases to learn how the entire process works internally behind the scenes.
+
+So this process that we're about to study is started by React each time that a new render is triggered, most of the time by updating state somewhere in the application. So state changes trigger renders, and so it makes sense that the next phase is the render phase.
+
+In this phase, React calls our component functions and figures out how it should update the DOM, so in order to reflect the latest state changes. However, it does actually not update the DOM in this phase. And so React's definition of render is very different from what we usually think of as a render, which can be quite confusing.
+
+So again, in React, rendering is not about updating the DOM or displaying elements on the screen. Rendering only happens internally inside of React, and so it does not produce any visual changes.
+
+Now, in all the previous sections, I have always used the term rendering with the meaning of displaying elements on the screen because that was just easy to understand and it just made sense, right?
+
+However, as we just learned, the rendering that I used to mean is really this render plus the next phase. And speaking of that next phase, once React knows how to update a DOM, it does so in the commit phase. So in this phase, new elements might be placed in the DOM, and already existing elements might get updated or deleted in order to correctly reflect the current state of the application. So it's really this commit phase that is responsible for what we traditionally call rendering, not the render phase, okay?
+
+Then finally, the browser will notice that the DOM has been updated and so it repaints the screen. Now this has nothing to do with React anymore, but it's still worth mentioning that it's this final step that actually produces the visual change that users see on their screens.
+
+All right, so let's now zoom into each of these different steps, starting with the triggering of a render.
+
+So there are only two ways in which a render can be triggered. The first one is the very first time the application runs, which is what we call the initial render. And the second one is a state update happening in one or more component instances somewhere in the application, which is what we call a re-render.
+
+And it's important to note that the render process really is triggered for the entire application, not just for one single component. Now that doesn't mean that the entire DOM is updated because remember, in React, rendering is only about calling the component functions and figuring out what needs to change in the DOM later.
+
+Now again, this might seem confusing now because earlier in the course, I made it seem as though React only re-renders the component where the state update happened. But that's because we were learning how React works in practice. And in fact, when we look at what happens in practice, it looks as if only the updated component is re-rendered. But now we are learning how React actually works behind the scenes. And so now we know that React looks at the entire tree whenever a render happens.
+
+Finally, I just want to mention that a render is actually not triggered immediately after a state update happens. Instead, it's scheduled for when the JavaScript engine basically has some free time on its hands. But this difference is usually just a few milliseconds that we won't notice. There are also some situations like multiple sets state calls in the same function where renders will be batched, as we will explore a bit later.
+
+So this is how renders are triggered, which is the easy part. What follows is the hard part, which is the actual rendering. And so let's learn all about that in the next video.

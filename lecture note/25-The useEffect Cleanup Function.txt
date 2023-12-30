@@ -1,0 +1,105 @@
+
+
+//SUBTITLE
+Certainly! Here's the text with the numbers removed:
+
+```
+‫So the third part
+of an effect is the cleanup function.
+
+And so let's now come back to the timeline
+that we have looked at before,
+and the holes that we have left in it.
+
+So remember that after the last effect run,
+the title of the page in the browser tab was set
+to Interstellar Wars, right?
+
+However, once we unmounted the movie details component,
+we would probably like the title to return
+to the original text, which was simply usePopcorn,
+so just the name of the application.
+
+But how could we do that?
+How can we ensure that the page title stays synchronized
+with the application,
+even after the component has disappeared?
+
+Well, basically what we need is a way to execute some code
+as the component unmounts.
+
+And we can do exactly that
+by returning a so-called cleanup function from the effect.
+
+And in this case, that's simply a function
+that sets the title back to usePopcorn.
+
+All right, but you see that we still have another hole here
+in the timeline, and that's because the cleanup function
+that we return from the effect is actually also executed
+on re-renders,
+so right before the next effect is executed again.
+
+So let's recap this important new information
+that we just learned.
+
+So the cleanup function is a function
+that we can return from an effect,
+and I say it can because the cleanup function is optional,
+so we don't have to return one from the effect.
+
+Now the cleanup function will run on two occasions.
+First, it runs before the effect is executed again,
+in order to clean up the results
+of the previous side effect.
+It also runs right
+after the component instance has unmounted,
+in order to give us the opportunity to reset the side effect
+that we created, if that's necessary.
+
+So remember that we have the dependency array,
+in order to run code whenever the component mounts
+or re-renders.
+And now with the cleanup function, we also have a way
+to run some code whenever the component unmounts.
+
+And so with this,
+we have the entire component life cycle covered.
+
+Now you might be wondering,
+when do we actually need a cleanup function?
+
+Well, basically we need a cleanup function
+whenever the side effect keeps happening
+after the component has been re-rendered or unmounted.
+
+For example, you might be doing an HTTP request
+in your effect.
+Now if the component is re-rendered
+while the first request is still running,
+a new second request would be fired off, right?
+And so this might then create a bug called a race condition.
+And therefore it's a good idea to cancel the request
+in a cleanup function whenever the component re-renders
+or unmounts.
+
+And of course, there are many other examples.
+So when you subscribe to some API service,
+you should cancel the subscription.
+When you start a timer,
+you should stop the timer in the cleanup function.
+Or if you add an event listener,
+you should clean up by removing it.
+
+Okay, and now to finish,
+let me give you one more important rule about effects,
+which is that each effect should only do one thing.
+
+So if you need to create multiple effects
+in your components, which is completely normal,
+just use multiple useEffect hooks.
+This not only makes each effect much easier to understand,
+but it also makes effects easier
+to clean up using a cleanup function.
+And with that being said, let's return to our application.
+```

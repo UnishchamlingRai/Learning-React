@@ -1,0 +1,48 @@
+/* .StarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid rgb(29, 27, 27);
+  background-color: rgb(39, 32, 32);
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.head {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.head p {
+  color: yellow;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars span {
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.StarContainer button {
+  background-color: rgb(18, 18, 217);
+  border-radius: 10px;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  width: 200px;
+} */

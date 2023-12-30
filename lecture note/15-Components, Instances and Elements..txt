@@ -1,0 +1,36 @@
+//React Explanation
+Let's explore the different parts of building things with React, like LEGO blocks! Imagine we have these building blocks called "React components." Each component is like a blueprint or plan for a part of a webpage. We use these blueprints to create actual pieces on the webpage.
+
+Now, every time we want to use a blueprint (component) in our code, React takes that blueprint and makes a real thing out of it. We call these real things "component instances." It's like having a blueprint for a house, and when you want to build that house three times, you create three instances of it.
+
+These instances are special because they can have their own information and lifespan. It's a bit like each house having its own story, and it can be built, exist for some time, and eventually, it might not be needed anymore.
+
+When we use a blueprint (component) in our code, React converts it into something called a "React element." This element is like a digital version of our component, and it contains all the details needed to create the actual parts on the webpage. It's like turning our house blueprint into a digital model.
+
+But we're not done yet! This digital model (React element) needs to become a real part of the webpage that you can see and interact with. This final step involves converting the React element into actual parts on the webpage. These real parts are called "DOM elements," and they are what you see on the screen.
+
+Remember, it's a journey from having a blueprint, creating instances of it, turning it into a digital model (React element), and finally, making it a real part on the webpage (DOM element). It's like building with LEGO blocks in a digital world!
+
+I hope this makes the process clearer. If you're interested, we can even look at some code in the next video!
+
+
+
+
+//SUBTITLE
+Let's start this section with the conceptual difference between React components, Component instances, and React elements. Knowing about this difference will hopefully make it a bit more clear what actually happens with your components as you use them. And also, this is a pretty common interview question. So this topic is definitely worth learning about.
+
+And let's begin by taking another look at components. So components are what we write in order to describe a piece of the user interface. The component is just a regular JavaScript function, but it's a function that returns React elements. So it returns an element tree. And we usually write these elements using the JSX syntax.
+
+Now a component is a generic description of the UI. So we can essentially think of a component as a blueprint or a template, and it's out of this one blueprint or template that React then creates one or multiple component instances. React does this each time that we use the component somewhere in our code. For example, the tap component that we saw in the last slide is used, so it is included three times in this app component. And so, therefore, three instances of tap are placed in a component tree. In our actual application, behind the scenes, this happens because React will call the tap function three times. So one time for each instance.
+
+So we can say that an instance is like the actual physical manifestation of a component living in our componentry. While the component itself is really just a function that we wrote before being called. And actually, it's each instance that holds its own state and props and that also has its own life cycle. So basically, a component instance can be born, it can live for some time until it will eventually die. So it's a bit like a living organism really.
+
+Now in practice, we many times just use the terms component and component instance interchangeably. For example, we just say component lifecycle and not component instance lifecycle. And we also say that a UI is made up of components, not of component instances, even though instances would technically be more accurate.
+
+Okay, so just keep that in mind in the future when you read documentation or some Stack Overflow post or something like that. But anyway, as React executes the code in each of these instances, each of them will return one or more React elements. As we learned when we first talked about JSX behind the scenes, JSX will actually get converted to multiple React.createElement function calls. Then as React calls these createElement functions, the result will be a React element. So a React element is basically the result of using a component in our code. It's simply a big immutable JavaScript object that React keeps in memory. And we will take a look at this later in our course.
+
+But what is this object actually? Well, a React element basically contains all the information that is necessary in order to create DOM elements for the current component instance. So it's this React element that will eventually be converted to actual DOM elements and then painted onto the screen by the browser.
+
+Based on all this, the DOM elements are the actual, final, and visual representation of the component's instance in the browser. And again, it's not React elements that are rendered to the DOM. React elements just live inside the React app and have nothing to do with the DOM. They are simply converted to DOM elements when they are painted on the screen in this final step.
+
+Okay, so this is the journey from writing a single component to using it multiple times in our code as a blueprint all the way until it's converted to a React element and then rendered as HTML elements into the DOM. So I hope you found this interesting and useful, and if you did, then let's move on to the next video and take a look at all this in code.

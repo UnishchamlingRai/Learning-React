@@ -1,0 +1,309 @@
+CHAT GPT EXPLAINATION
+Sure, let's break down the content in a simpler and more straightforward way:
+
+1. **Introduction to Render Logic and Event Handlers:**
+   To make our web applications work, we use something called "render logic" and "event handler functions." Render logic helps decide how our components should look, and event handlers make things happen in response to user actions.
+
+2. **Understanding Render Logic:**
+   Render logic is the code that decides how a part of our website looks. It's like a set of instructions saying, "Show this text, then display this button." It's important that this code doesn't do things like talking to the internet or changing data outside its area.
+
+3. **Understanding Event Handlers:**
+   Event handlers, on the other hand, are like helpers that do things when you interact with a website. Clicking a button or typing something triggers these event handlers, which can then perform actions like updating information or talking to the internet.
+
+4. **Why Render Logic Needs to be "Pure":**
+   In React, we want our render logic to be "pure." Think of it like a recipe – if you follow the same steps with the same ingredients, you should get the same dish. Similarly, if we give our component the same information (props), it should always show the same thing.
+
+5. **Avoiding Unwanted Side Effects:**
+   We don't want our render logic to do things that could cause unexpected changes – like talking to the internet or changing things outside its job. This helps keep our code predictable and bug-free.
+
+6. **Understanding Side Effects:**
+   Side effects are like unexpected changes caused by our code. We want to minimize these in our render logic to keep things under control.
+
+7. **Dealing with Side Effects:**
+   While render logic should avoid side effects, we have other ways to handle them. Event handlers are allowed to do things like talking to the internet or making changes because they're separate from the pure render logic.
+
+8. **Summary:**
+   In a nutshell, render logic is about deciding how things look on our website, and we want it to be predictable and free from unexpected changes. Event handlers, on the other hand, are allowed to do more dynamic and interactive things. This helps keep our web applications running smoothly.
+
+
+//SUBTITLE
+Certainly! Here's the text with numbers removed:
+
+```
+In order for the rendering process to work
+
+In the way that we just learned before,
+
+Our render logic needs to follow some simple rules.
+
+So, let's look at these rules in this lecture
+
+But first of all, what actually is render logic?
+
+Well, in order to understand that,
+
+Let's actually take a look at the two types
+
+Of logic that we can write in React components.
+
+So, that's render logic and event handler functions.
+
+So render logic is basically all the code that lifts
+
+At the top level of your component functions
+
+And that participates in describing how the view
+
+Of a certain component instance should look like.
+
+So in this code example, there is a lot of render logic.
+
+So we have these two lines of code at a top level
+
+And then also the return block where our component returns
+
+It's JSX.
+
+So these describe exactly how the component
+
+Will be displayed on the screen.
+
+However, if we look closely, we can identify
+
+Yet another piece of render logic here, even though
+
+This code is actually inside a function.
+
+So as you can see in the return block, the code there
+
+Is actually calling this createList function.
+
+And therefore, that logic also participates
+
+In describing the component view.
+
+And so, it's also render logic.
+
+So basically, render logic is all the code
+
+That is executed as soon as the component is rendered.
+
+So each time that the function is called.
+
+Now moving on to event handler functions,
+
+Those are very easy to identify.
+
+So, they're basically pieces of code that are executed
+
+As a consequence of the event that the handler
+
+Is listening to.
+
+So in our example, we have this line of code
+
+That essentially registered handle new answer
+
+For the change event and therefore handle new answer
+
+Is our event handle function.
+
+And this is of course nothing new at this point.
+
+So we have done this many times in the course, right?
+
+But it's still important to differentiate
+
+Between these two types of logic
+
+Because they do actually do fundamentally different things.
+
+So while render logic is code that renders the component,
+
+Event handlers contain code that actually does things
+
+In the application.
+
+So basically code that makes things happen
+
+In the application.
+
+So, event handlers contain things like state updates,
+
+HTTP requests, reading input fields, page navigation,
+
+And many more.
+
+So all things that basically change
+
+And manipulate the application in some way.
+
+Now why is this all so important?
+
+Well, it's important because React requires
+
+That components are pure when it comes to render logic
+
+In order for everything to work as expected.
+
+But what does pure actually mean?
+
+To answer that, let's have a quick refresher
+
+On functional programming principles,
+
+Which are quite important in React in general.
+
+And let's start with side effects.
+
+So, a side effect happens whenever a function depends
+
+On any data that is
+
+Outside the function scope, or even more importantly
+
+Whenever a function modifies data that is outside its scope.
+
+And I like to think as a side effect
+
+As a functions interaction with the outside world.
+
+For example, this function is mutating an outside object.
+
+And so this is clearly a side effect.
+
+Other examples of side effects are HTTP requests,
+
+Riding to the DOM, setting timers and more.
+
+The other important functional concept is pure functions,
+
+Which are basically functions without side effects.
+
+So basically, these are functions that do not change
+
+Any variable outside their scope.
+
+Also, when we give a pure function the same input,
+
+It'll always return the same output.
+
+For example, this function is clearly a pure function
+
+Because if we give it the same argument r,
+
+It'll always give us the area
+
+Of the circle based on that r value.
+
+So the output only depends on the inputs,
+
+Which makes this function predictable.
+
+This other function right here on the other hand
+
+Is completely unpredictable
+
+Because it returns a string that contains a date
+
+And that date changes every second.
+
+So in this case, even
+
+If we give the function the same input,
+
+The output will always be different
+
+Because the date will always be different
+
+And therefore, this is an impure function.
+
+And the same is true for the second function.
+
+So notice how this function mutates an outside variable,
+
+Which of course makes this function impure as well.
+
+Now, calling functions impure makes it sound
+
+As if side effects are somehow bad
+
+But that's actually not true.
+
+So, side effects are not bad in themselves.
+
+In fact, if we think about it,
+
+Any program can only be useful if it has some interaction
+
+With the outside world at some point, right?
+
+Like a web application that never affects any data
+
+Or never writes to the DOM is just completely useless.
+
+However, in order to make useful and bug-free applications,
+
+We need to know when and how to create side effects,
+
+Which brings us back to React
+
+And its rules for render logic.
+
+And essentially, there's just one big rule,
+
+Which is that components must be pure functions
+
+When it comes to render logic.
+
+This means that if we give a certain component instance
+
+The same props, so the same input,
+
+Then the component should always return
+
+The exact same output in the form of JSX.
+
+In practice, this means that render logic
+
+Is not allowed to produce any side effects.
+
+So in other words, the logic that runs
+
+At the top level and is responsible
+
+For rendering the component should have no interaction
+
+With the outside world.
+
+This means that render logic is not allowed
+
+To perform network requests to create timers
+
+Or to directly work with the DOM API.
+
+For example, listening to events using at event listener.
+
+Now, according to what we learned previously,
+
+Render logic must also not mutate objects
+
+Or variables that are outside the scope
+
+Of the component function.
+
+And this is actually the reason why we cannot mutate props,
+
+Which remember is one of the hard rules of React.
+
+And so now you know why that rule exists.
+
+It's because doing so would be a side effect
+
+And side effects are not allowed.
+
+Finally, we really cannot update state
+
+Or refs in render logic.
+
+And updating

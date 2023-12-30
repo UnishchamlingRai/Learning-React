@@ -1,0 +1,42 @@
+#Day8ofClg_askmitra #Clg_askmitra70days
+Hello, this is Unish Rai. As you all know I'm participating in the ITSNP X Askmitra 60-days challenge and Today is my 8th day. I encourage everyone to begin their 60 days by learning anything they choose; it will be fun. I’m excited already. If you want to start learning more about this program here: https://clg.askmitra.com 
+Here's what I learned today.
+*How React Works Behind the Scenes.
+1)Component Lifecycle
+2)useEffect
+2)useEffect Dependency Array
+
+
+For further insights, you can view my code at github repo:
+https://github.com/UnishchamlingRai/Learning-React
+
+Connect with me in linkedin:https://www.linkedin.com/in/unish-rai/
+Visit My portfolio:https://unishrai.netlify.app/
+
+
+
+//For linkedin
+Hello everyone, Today Day 8th of my 60-day React Learning Challenge, and the journey is getting more exciting! 
+
+Today's Learnings:
+1)Component Lifecycle
+2)useEffect
+2)useEffect Dependency Array
+
+For further insights, you can view my code at github repo:
+https://github.com/UnishchamlingRai/Learning-React
+
+Github Account Link:https://lnkd.in/dezG-waY
+My portfolio:https://lnkd.in/drcpB6Zu
+
+#ReactLearningChallenge #ReactJS #WebDevelopment #CodingJourney #LearnToCode #DeveloperCommunity #Day8
+
+
+Hi Unish mugi,
+
+I'm Nelson, a high school student with a burning passion for technology. I've been consistently learning various aspects of tech on my own, but I'm facing some limitations due to the lack of tech exposure in my country. Your extensive experience in this field is truly impressive.
+
+Could you spare some time to provide advice and mentorship? I'm eager to learn and break into the tech world. Your insights would be invaluable.
+
+Best regards,
+Nelson

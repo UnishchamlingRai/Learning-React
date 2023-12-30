@@ -1,0 +1,70 @@
+//CHAT GPT EXPLANATION
+Certainly! Let's break down the concepts in a simpler way:
+
+---
+
+In the lecture about the render phase, we missed an important part called the "diffing algorithm." This algorithm is crucial in the process of reconciliation, which is a key aspect of updating elements in React.
+
+**Diffing is like Spotting Changes:**
+Diffing is like a detective figuring out what has changed between two scenes (renders) of a movie (React app). It's based on two key ideas:
+
+1. **Different Things Look Different:**
+   - If you change something from, let's say, a drawing to a photo, it looks very different. In React terms, if you change the type of an element, it means it will create a different view.
+
+2. **Stable Things Stay the Same:**
+   - Imagine you have a favorite character in a movie. If they stay the same, it's easier to recognize them. Similarly, in React, if an element has a stable "key," like a character's name, it stays the same in different scenes.
+
+**Two Detective Situations:**
+There are two situations the detective (React) encounters:
+
+1. **When Things Change:**
+   - If React sees something has changed (for example, a button becoming a header), it decides everything related to it is no longer valid. So, it removes and rebuilds that part, including its "memory" or state.
+
+2. **When Things Stay the Same:**
+   - If React sees the same thing in the same place (like a button staying a button), it's smart. It keeps it in place, including its memory (state). If there are small changes, it just updates those, like changing the color of the button.
+
+**Key to a New Scene:**
+There's a special trick React uses called the "key prop." Imagine you want a new actor (component) to replace the old one, but you want to be sure they are entirely new. The "key" helps React do this, creating a fresh start.
+
+**Why Does This Matter?**
+Understanding how React spots changes helps us build apps efficiently. Sometimes, it's okay to keep things the same, but other times, we want a fresh start. It's like deciding whether to use old building blocks or get brand new ones when updating a scene in our React app.
+
+This detective work by React makes our apps work smoothly, updating only what's necessary and ensuring things stay familiar or get a fresh look when needed!
+
+
+
+
+///SUBTITLE
+Certainly! Here's the transcript without the timestamps and with words only:
+
+---
+
+In the lecture about the render phase, we left out one critical piece, which was the diffing algorithm that is part of the reconciliation process. So we mentioned diffing back then but we didn't really go into how diffing works. And since that's really important, let's do that now.
+
+So diffing is first of all based on two fundamental assumptions. The first one is that two elements of different types will produce different trees. The second assumption is that elements with a stable key, so a key that is consistent over time, will stay the same across renders.
+
+Now these assumptions may seem pretty obvious, especially the first assumption, but they allow the algorithm to be orders of magnitude faster going, for example, from a billion operations per a thousand processed elements to just a thousand operations.
+
+Remember that diffing is comparing elements step-by-step between two renders based on their position in the tree. And there are basically two different situations that need to be considered. First, having two different elements at the same position in the tree between two renders, and second having the same element at the same position in the tree. So those are the only two situations that matter.
+
+Let's now start with the first situation. Let's say that at some point an application is re-rendered, and in the diffing process, we find that an element has changed in a certain position of the tree. Now here we're actually not looking at a tree but at the JSX code, which leads to that tree because I find that it's a bit easier to understand this way.
+
+But anyway, in the case of a DOM element changing like this, changing simply means that the type of the element has changed, like in this example from a div to a header. So in a situation like this, React will assume that the element itself plus all its children are no longer valid. Therefore, all these elements will actually be destroyed and removed from the DOM. And that also includes their state, which is really important to remember.
+
+As we see in this example, both the diff element and the search bar component will be removed from the DOM and will then be rebuilt as a header with a brand new search bar component instance as the child.
+
+So if the child elements stay the same across renders, the tree will actually get rebuilt, but it gets rebuilt with brand new elements. And so if there were any components with state, that state will not be recovered. This effectively resets state, and this has huge implications for the way that React applications work in practice. That's why we will see some examples of this behavior in the next lecture.
+
+Now, everything we just learned works the exact same way for React elements, so basically for component instances as we can see in this second example. Here the search bar component changed to a profile menu component, and therefore the search bar is again completely destroyed, including its date and removed from the DOM.
+
+Okay, so this is the first situation. The second situation is when between two renders we have the exact same element at the same position in the tree. And this one is actually way more straightforward.
+
+So if after a render, an element at a certain position in the tree is the same as before, like in these examples right here, the element will simply be kept in the DOM. And that includes all child elements and more importantly, the components' state.
+
+Now this may sound pretty obvious but it actually has some important implications in practice. Again, the same element at the same position in the tree stays the same and preserves state, and it works like this for DOM elements and for React elements as well.
+
+Looking at these examples, we actually see that something has changed. However, it was not the element type that has changed but simply the class name attribute in the diff and the weight prop in the search power component. And so what React is gonna do is to simply mutate the DOM element attributes. And in the case of React elements, it'll pass in the new props, but that's it.
+
+React tries to be as efficient as possible, so the DOM elements themselves will stay the same. They're not removed from the DOM, and even more importantly, the state will not be destroyed.
+
+Now sometimes we actually don't want this standard behavior but instead to create a brand new component instance with new state. And so that's where the key prop comes into play, as we will learn about after seeing these rules that we just learned about in action.

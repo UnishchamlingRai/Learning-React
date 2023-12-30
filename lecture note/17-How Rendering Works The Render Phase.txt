@@ -1,0 +1,39 @@
+Sure, here's the transcript without the timestamp numbers:
+
+---
+
+Welcome back to probably the most complicated and most confusing lecture of the entire course. But I don't say this to scare you because this might also be the most interesting and fascinating lecture of the course. Now, if you don't immediately understand 100% of what I'm gonna teach you here, that's absolutely fine. So don't stress about it at all. Again, you can use React without knowing any of this stuff, but if you have a curious mind and feel the need to understand how React does what it does, then this video is for you.
+
+Now, before we even start, let's first go back to where we first learned about the mechanics of state. Remember this diagram? Well, back then I told you that we can conceptually imagine this as a new view being rendered on the screen, so into the DOM. However, now we know that this was technically not true because rendering is not about the screen or the DOM or the view, it's just about calling component functions. I also told you that whenever there is a re-render, React discards the old component view and replaces it with a brand new one. However, that's also technically not true. So the DOM will actually not be updated for the entire component instance.
+
+So if those things are not true, then let's now learn what happens instead and how rendering actually works.
+
+Now, in the previous lecture, we talked about how renders are triggered. In this lecture, we're gonna learn all about how renders are actually performed in the render phase.
+
+So, at the beginning of the render phase, React will go through the entire component tree, take all the component instances that triggered a re-render, and actually render them, which simply means to call the corresponding component functions that we have written in our code. This will create updated React elements which altogether make up the so-called virtual DOM. And this is a term that you might have heard before, and so let's dig a little bit deeper now into what the virtual DOM actually is.
+
+So on the initial render, React will take the entire component tree and transform it into one big React element which will basically be a React element tree like this one. So, the virtual DOM is just a tree of all React elements created from all instances in the component tree. And it's relatively cheap and fast to create a tree like this, even if we need many iterations of it because in the end it's just a JavaScript object.
+
+Now, virtual DOM is probably the most hyped and most used term when people describe what React is and how it works. But if we think about it, if the virtual DOM is just a simple object, it's actually not such a big deal, right? And that's why the React team has really downplayed the meaning of this name. And the official documentation actually no longer mentioned the term virtual DOM anywhere. But I'm still using this term here because everyone still uses it and also because it just sounds a bit nicer than React element tree. Also, some people confuse the term with the shadow DOM, even though it has nothing to do with the virtual DOM in React. So the shadow DOM is actually just a browser technology that is used in stuff like web components.
+
+But anyway, let's now suppose that there is gonna be a state update in component D, which will of course trigger a re-render. That means that React will call the function of component D again and place the new React element in a new React element tree. So, in a new virtual DOM.
+
+But now comes the very important part, which is this. Whenever React renders a component, that render will cause all of its child components to be rendered as well. And that happens no matter if the props that we passed down have changed or not. So again, if the updated components return one or more other components, those nested components will be re-rendered as well, all the way down the component tree. This means that if you update the highest component in a component tree, in this example component A, then the entire application will actually be re-rendered.
+
+Now, this may sound crazy, but React uses this strategy because it doesn't know beforehand whether an update in a component will affect the child components or not. And so by default, React prefers to play it safe and just render everything. Also, keep in mind once again that this does not mean that the entire DOM is updated. It's just a virtual DOM that will be recreated which is really not a big problem in small or medium-sized applications.
+
+Okay, so with this, we now know what this new virtual DOM here means and so let's keep moving forward.
+
+So what happens next is that this new virtual DOM that was created after the state update will get reconciled with the current so-called Fiber tree as it exists before the state update. Now this reconciliation is done in React's reconciler which is called Fiber. Then the results of this reconciliation process are gonna be an updated Fiber tree, so a tree that will eventually be used to write to the DOM. So this isthe point where React decides what to do with the real DOM based on the changes detected in the virtual DOM.
+
+During the reconciliation process, React compares the new virtual DOM with the old one. It identifies what parts of the virtual DOM tree have changed and what actions need to be taken. React doesn't update the entire real DOM at once. Instead, it calculates the minimum number of changes required to update the real DOM to match the virtual DOM.
+
+React then translates these changes into instructions for the browser's layout and paint engines. The result is a set of instructions known as the "commit phase." The commit phase represents the actual changes that need to be applied to the real DOM.
+
+Now, React performs the commit phase, where it takes the updated Fiber tree and applies the changes to the real DOM. It does this efficiently, making minimal and targeted updates to the actual web page.
+
+One important thing to note is that React may batch multiple updates together to optimize performance. This means that several state updates triggered in close succession might be combined and applied in a single pass, further reducing the impact on performance.
+
+In summary, the render phase involves creating a new virtual DOM based on the updated state, reconciling it with the existing Fiber tree, and generating a set of instructions for the commit phase. The commit phase then efficiently applies these changes to the real DOM, resulting in an updated UI for the user.
+
+Understanding these internal processes can help you write more efficient React code and make informed decisions about performance optimizations in your applications. Keep in mind that while this knowledge is valuable, you can still be a highly effective React developer without delving too deep into these internals. React abstracts away many complexities, allowing you to focus on building great user interfaces.

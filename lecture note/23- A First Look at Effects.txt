@@ -1,0 +1,52 @@
+CHAT GPT explainTION
+Sure, let's break it down in simpler terms:
+
+Imagine you're building something with Lego blocks, and each Lego block represents a part of your website or app. Now, sometimes you need your Lego creation to do things, like change color or make a sound. In computer programming, these actions are called "side effects."
+
+So, in React, which is a tool for building websites, we use something called "effects" to make these side effects happen. Effects are like special instructions that say, "Hey, when this part of the website shows up or changes, do something cool!"
+
+Now, there are two main ways we can make these effects happen. One way is to wait for a specific event, like when you press a button or click on something. We call these event handlers. It's like saying, "When the button is clicked, make the Lego tower grow taller."
+
+The other way is to make things happen right when the website is first shown on the screen. It's like saying, "As soon as you see the Lego tower, make it sparkle." We use something called the "useEffect" tool to do this.
+
+Now, the "useEffect" tool is pretty smart. It can do different things at different times, like when the website first shows up, when it changes, or even when it disappears. It's like having a helper that knows exactly when to make your Lego creation do something cool.
+
+But here's the thing: we should try to use the event handler way whenever we can. It's like the preferred way of making our Lego tower do things. The "useEffect" tool is powerful, but it's best for certain situations.
+
+In simple terms, it's like saying, "If you want your Lego tower to do something when you click a button, use an event handler. If you want it to do something as soon as it shows up, use the 'useEffect' tool." And that's how we make our websites and apps do awesome things!
+
+
+
+
+
+
+//SUBTITLE
+So we just used the used effect hook for the very first time in order to fetch movie data as the component mounts. But what actually is an effect and how is it different from an event handler function? Well, let's find out in this video.
+
+And just so we're all on the same page, let's start by reviewing what a side effect is. So basically in React, a side effect is any interaction between a React component and a world outside that component. And we can think of a side effect as some code that actually makes something useful happen. For example, fetching data from some API.
+
+So what this means is that we actually need side effects all the time when we build React apps. Now, we already know that side effects should not happen during the component render, or in other words, side effects should not be in render logic. Instead, we can create side effects in two different places in React. And the first one is inside event handlers. And remember that event handlers are simply functions that are triggered whenever the event that they are listening to happens.
+
+However, simply reacting to events is sometimes not enough for what an application needs. Instead, in some situations, we need to write some code that will be executed automatically as the component renders. And so this is when we can create a so-called effect by using the useEffect hook.
+
+So by creating an effect, we can basically write code that will run at different moments of a component instance life cycle. So when the component mounts, when it re-renders, or even when it unmounts. And this is really great because it opens up a whole new door of possibilities.
+
+Okay, but let's now get just a bit deeper into how effects work by comparing event handlers to effects created with the useEffect hook. And let's go back to the example of fetching movie data that we have been using.
+
+So fetching movie data is very clearly a side effect because it's clearly an interaction with the world outside the component. Now, there are two different possibilities of when we might want to create this side effect. The first possibility is that we might want to fetch movie data only when a certain event happens. So in that case, we will, of course, just use an event handler function. So just like we have been doing up until this point—I mean, we haven't been using event handlers to fetch data, but we have used them for other stuff.
+
+Now the other possibility of when to fetch the data would be to do so immediately after the component mounts, so after it is first rendered. And so this is exactly what we did in the previous lecture when we first used the useEffect hook to specify an effect that was executed right after the component was painted to the screen.
+
+So we can say that these two pieces of code produce the exact same result. So they both fetch data about a movie, but they do so at different moments in time. So the event handler executes when an event happens, and the effect executes whenever the component first renders—at least in this situation because the exact moment at which the effect is executed actually depends on its dependency array, which I shortly mentioned in the last video.
+
+So we can basically use this dependency array to tell the effect to also run after a component re-renders. But I won't go deep into this right now because that's easier to explain with code. But speaking of the dependency array, this array is just one of three parts that any effect can have.
+
+So besides the dependency array, we have, of course, the effect code itself. And also, each effect can return a so-called cleanup function, which is a function that will be called before the component re-renders or unmounts.
+
+Now thinking about different moments of the component lifecycle—so mounting, re-rendering, and unmounting—can be very helpful to understand how effects work. However, we should actually not think about life cycles but about synchronization.
+
+So the real reason why effects exist is not to run code at different points of the life cycle but to keep a component synchronized with some external system. In this example, that would be to keep the component in sync with the movie data that comes from some external API.
+
+And if that sounds super confusing, keep in mind that this is just a first introduction to effects. We will come back to all this after having used the useEffect hook a bit more in practice. But anyway, to finish our comparison here, as we just learned, we use effects to keep a component in sync with the external world. While on the other hand, we use event handlers to React to a certain event that happened in the user interface.
+
+Now, what's very important to note here is that event handlers are always the preferred way of creating side effects. So whenever possible, we should not overuse the useEffect hook. So basically everything that can be handled inside event handlers should be handled there.

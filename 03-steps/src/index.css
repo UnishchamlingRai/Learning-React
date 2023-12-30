@@ -5,6 +5,19 @@ const messages = [
   "Invest your new income 🤑",
 ];
  */
+.TipCalculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 * {
   box-sizing: border-box;
