@@ -1,0 +1,99 @@
+CHAT GPT EXPLANATION
+Absolutely, let's break down the text in a more explanatory manner:
+
+React hooks are special functions built into React that allow developers to tap into React's internal mechanisms. They act as APIs, providing access to internal React functionalities like creating and accessing state, and registering side effects in the fiber tree.
+
+Hooks are recognizable by their names, which always start with "use." Developers can also create custom hooks, following the same naming convention, offering an easy way to reuse non-visual logic.
+
+Before hooks, if developers wanted to give components state and access to the component life cycle, they had to use class-based components. However, hooks changed this, enabling functional components to have their own state and run side effects.
+
+While we've used a few hooks already, React comes with almost 20 built-in hooks. Some of the essential ones include `useState` and `useEffect`, along with `useReducer` and `useContext`. There are also less commonly used ones like `useRef`, `useCallback`, and `useMemo`. Some hooks are meant only for library authors and are not covered in this course.
+
+To ensure proper functioning, there are two simple rules of hooks. First, hooks must be called at the top level; they can't be inside conditionals, loops, or functions nested inside the component. Second, hooks can only be called from React functions, which means function components or custom hooks, not regular functions or class components.
+
+These rules are automatically enforced by React's ESLint rules if you use a linter.
+
+The first rule is crucial because hooks need to be called in the same order on every render. React creates a fiber tree on the initial render, containing a linked list of all the hooks used in the component instance. This linked list helps React keep track of the order of hooks between renders, allowing it to preserve the state of each hook correctly.
+
+Breaking the rule, such as by conditionally defining a hook, can lead to hooks disappearing or being added in a different order, disrupting the linked list and causing issues. Following the rules ensures that hooks always appear in the same order, maintaining the integrity of the linked list.
+
+Understanding this mechanism helps developers work with hooks effectively and appreciate the smart solution React has implemented behind the scenes.
+
+In the next video, the tutorial will delve into the `useState` hook and implement a real-world example.
+
+
+
+
+
+
+Sure, here's the text without the numbers:
+
+We have already used a few different React hooks at this point of the course, but we have never really learned what a React hook actually is and how they work.
+
+So React hooks are essentially special functions that are built into React and which allow us to basically hook into some of React's internal mechanisms, or in other words, hooks are basically APIs that expose some internal React functionality, such as creating and accessing state from the fiber tree, or registering side effects in the fiber tree, as well.
+
+Now, what all hooks have in common is that they all start with the word "use," in order to make it easy for us, and for React to distinguish hooks from other regular functions.
+
+And in fact, we can even create our own so-called custom hooks, which will also start with the word "use." And this is actually one of the greatest things about hooks in general, because custom hooks give us developers an easy way of reusing non-visual logic. So logic that is not about the UI.
+
+Now, you might be aware of this or not, but there was a time when we had to use components based on JavaScript classes if we wanted to give components state and access to the component life cycle. However, this came with a few problems, which led the React team to introduce hooks.
+
+And so now with hooks, our components based on functions can have their own state, and also run side effects. And so this was a huge step forward for React, and made it even more popular than it already was.
+
+Now we only used two hooks so far, but React actually comes with almost 20 built-in hooks. And so let's get a quick overview of them here.
+
+So useState and useEffect are, of course, some of the most important hooks, and therefore the most used ones, along with useReducer and useContext, that we will actually study pretty soon.
+
+Then we have this huge list of some less used hooks, but where some of them are actually still quite important, like useRef, useCallback and useMemo. So some of these are actually worth learning, but others are a bit more obscure, I would say.
+
+And so they are not part of the curriculum of this course. And finally, there are a few hooks that are intended only for library authors. And so of course, we will also not bother looking at those.
+
+Now, in order for hooks to actually work as intended, there are two very simple rules of hooks that we must follow.
+
+The first rule is that hooks can only be called at the top level in practice. This means that we cannot call hooks inside conditionals, like if statements, and also not inside loops or functions nested inside the component. We can also not call hooks after an early return, because that's also similar to a condition. But why? Why is this such an important rule?
+
+Well, it's because hooks only work if they are always called in the exact same order, which can only be insured if we only call them at the top level. And we will look at this in more detail in the next slide.
+
+And now the second rule is actually a bit simpler. All it says is that hooks can only be called from React functions. In practice, this means that hooks can only be called from function components or from custom hooks, but not from regular functions or even class components.
+
+Now, the great news is that you actually won't have to worry about these rules at all if you're using a linter, because these two rules are automatically enforced by React's ESLint rules. So you really won't be allowed to break these rules, even if you try, like we will in the next video.
+
+So if you want, you can actually just forget about the rules and finish the video right here. But if you're curious about the deeper reason why React needs rule number one, then let's move on to the final slide of this lecture.
+
+So let's now try to answer the question of why do hooks need to be called in the same order on every render? And let's actually start from the very beginning, based on all the knowledge that we already have at this point.
+
+Remember that whenever an application is rendered, React creates a tree of React elements, also called the virtual dom. On the initial render, React also builds a fiber tree out of the virtual dom, where each element is a fiber. Now, each of these fibers contains a lot of stuff, like the received props, a list of work, and crucially for us, a linked list of all the hooks that were used in the component instance.
+
+So to understand how hooks work behind the scenes, let's build ourselves a linked list of used hooks, based on this hypothetical code example. And I say hypothetical, because this code actually doesn't work. And can you spot why that is?
+
+That's right. This code actually violates the first rule of hooks, because it conditionally defines state here. But by breaking this rule, we will understand why hooks rely on the order in which they were called.
+
+Speaking of this order, our list will be built based on the call order of the used hooks. So first this useState call, then another useState call. And then finally this useEffect call. So this is our list of hooks but it's not a linked list yet.
+
+But what does linked actually mean? Well, it means that the first list element contains a reference to the second element, which in turn, has a link to the third list element. So all the list elements are linked together, which is actually a common data structure in computer science.
+
+But anyway, moving back to our code example, let's now imagine that a re-render happened, because state A was updated from 23 to 7, but this now creates a huge problem.
+
+Notice how state B was only created initially because the condition A equaled 23 was true, right? However, after this re-render, the condition is now false, which means that this useState hook would not be called. And so state B would then no longer exist in this linked list of hooks after the render.
+
+But what the problem with that, you might ask? Well, the problem is that the first hook is still pointing to the original second hook, so to state B, but that link is now broken. So state A is now linking to a hook that no longer exists, and nothing is pointing to the effect of Z, meaning that a linked list has been destroyed.
+
+It works this way because fibers are not recreated on every render. And so this list is also not recreated. So if one of the hooks just disappears from the list, then the order of the list will get completely broken.
+
+So in conclusion, if we conditionally use the hook, like we did here, that will completely mess up the list of hooks between renders, which will leave React confused and unable to correctly track all the hooks that were used.
+
+And so this is the reason why hooks need to be called in the same order on every single render. And the only way in which we can assure that is by only calling hooks at the top level, which is exactly what the first rule of hooks says.
+
+Following this rule, the code and the list of hooks would look just like this, so without any conditionals in the code, and with the list of hooks always in the same order.
+
+Now of course, this opens up the question of why even bother having this linked list, if it requires this strange rule to exist. Well, the big reason is that a linked list,
+
+ and also the way fibers work in general, allow us to keep track of the order of hooks between renders. So even if we add or remove hooks between renders, React will always correctly know in which order they were added.
+
+And so because of this, React can reliably preserve the state of each hook between renders, even if some of them are removed, and even if we are re-rendering a different number of times than before.
+
+And so this is actually a really smart solution, and it's quite a cool feature of how React is implemented behind the scenes. And so now you know why hooks need to be called in the same order on every render.
+
+Alright, so with this, we have completed our first lecture on hooks, and on the next video, we will take a closer look at the useState hook, and we will also implement our first real-world example.
+
+I will see you there.
