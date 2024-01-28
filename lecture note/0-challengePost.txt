@@ -1,11 +1,11 @@
-#Day15ofClg_askmitra #Clg_askmitra60days
-Hello, this is Unish Rai. As you all know I'm participating in the ITSNP X Askmitra 60-days challenge and Today is my 15th day. I encourage everyone to begin their 60 days by learning anything they choose; it will be fun. I’m excited already. If you want to start learning more about this program here: https://clg.askmitra.com 
+#Day38ofClg_askmitra #Clg_askmitra60days
+Hello, this is Unish Rai. As you all know I'm participating in the ITSNP X Askmitra 60-days challenge and Today is my 38th day. I encourage everyone to begin their 60 days by learning anything they choose; it will be fun. I’m excited already. If you want to start learning more about this program here: https://clg.askmitra.com 
 Here's what I learned today.
-1)Starting React Quiz App
-2)Loading Questions from a Fake API
-3)Handling Loading Error and Ready Status
-4)Displaying Questions
-
+Today's Learnings:
+1)Overview of Reusability in React
+2)The Render Props Pattern
+3)The Compound Component Pattern
+4)Building a Modal Window Using a React Portal
 For further insights, you can view my code at github repo:
 https://github.com/UnishchamlingRai/Learning-React
 
@@ -15,13 +15,13 @@ Visit My portfolio:https://unishrai.netlify.app/
 
 
 //For linkedin
-Hello everyone, Today Day 15th of my 60-day React Learning Challenge, and the journey is getting more exciting! 
+Hello everyone, Today Day 38th of my 60-day React Learning Challenge, and the journey is getting more exciting! 
 
 Today's Learnings:
-1)Starting React Quiz App
-2)Loading Questions from a Fake API
-3)Handling Loading Error and Ready Status
-4)Displaying Questions
+1)Overview of Reusability in React
+2)The Render Props Pattern
+3)The Compound Component Pattern
+4)Building a Modal Window Using a React Portal
 
 For further insights, you can view my code at github repo:
 https://github.com/UnishchamlingRai/Learning-React
@@ -29,6 +29,10 @@ https://github.com/UnishchamlingRai/Learning-React
 Github Account Link:https://lnkd.in/dezG-waY
 My portfolio:https://lnkd.in/drcpB6Zu
 
-#ReactLearningChallenge #ReactJS #WebDevelopment #CodingJourney #LearnToCode #DeveloperCommunity #Day15
+#ReactLearningChallenge #ReactJS #WebDevelopment #CodingJourney #LearnToCode #DeveloperCommunity #Day38
 
 
+//https://prodigyinfotech.dev/
+//https://www.codsoft.in/internships
+
+databasepassword:#~evd9+HF!j%2ZL

@@ -1,0 +1,467 @@
+//GHAT GPT EXPLAINATION
+Certainly! Let's break down the explanation in easy-to-understand terms:
+
+---
+
+Imagine you're building a web application, and you have different parts of the application that need to share information, like the user's details or a list of products. Redux is like a tool that helps you manage and share this information among different pieces of your web app.
+
+**Key Concepts:**
+1. **Redux is a Helper:** It's like having a helper (Redux) that keeps track of important information for your entire web app.
+  
+2. **Global State:** This helper manages something called the "global state," which is like a storage room where your app stores important information that multiple parts of the app can use.
+
+3. **Actions:** To update this global state, you use "actions," which are like instructions you give to the helper. For example, you might tell it to update the user's information or the list of products.
+
+4. **Reducers:** The helper has different workers called "reducers." Each reducer is responsible for a specific type of information, like one worker for users and another for products. These workers know how to follow the instructions (actions) and update their specific part of the storage room.
+
+**How it Works:**
+1. **Create an Action:** When you want to change something (e.g., update the user's details), you create an action. It's like writing a note with clear instructions, such as "Update User" and what the new information is.
+
+2. **Tell the Helper (Dispatch):** You give this note to the helper by dispatching the action. It's like telling the helper, "Hey, we want to update the user's details. Here's how."
+
+3. **Reducers Get to Work:** The helper knows which worker (reducer) is responsible for the user's details, so it gives the note to that worker. The worker looks at the note, does some calculations, and updates the user's information.
+
+4. **Combine Information:** The helper collects the updated information from all the workers (reducers) and combines it into one big storage room (global state).
+
+5. **Re-Render:** Whenever this storage room is updated, any part of your web app that uses this information gets notified and updates itself. It's like when you change something in one corner of the room, and everything that depends on that information adjusts accordingly.
+
+**Why Redux?**
+- **History:** In the past, Redux was used a lot, like a must-have tool for web apps. Many developers learned it because it was widely used.
+
+- **Teamwork:** If you work in a team, you might encounter older code that uses Redux. So, it's good to understand how it works.
+
+- **Complex Apps:** For big and complex apps with lots of information that needs frequent updates, Redux can be handy.
+
+**Conclusion:**
+- Today, there are other tools, and not all apps need Redux. But learning it is valuable because it helps you understand how to manage information in a web app effectively.
+
+In the next part, we'll dive into writing some actual code for Redux.
+
+
+
+//SUBTITLE
+As always, let's start by getting
+
+a good understanding of what Redux actually is
+
+and how the mechanics of Redux work
+
+especially when compared with the useReducer hook.
+
+So in a nutshell, Redux is a third-party library
+
+that we can use to manage global state in a web application.
+
+And I say web application,
+
+because Redux is actually a complete standalone library
+
+that we could use with any framework
+
+or even Vanilla JavaScript.
+
+However, Redux has always been tightly linked to React
+
+and they are actually quite easy to connect
+
+using the react-redux library as we will do
+
+throughout this section.
+
+Now, the big idea behind Redux is that
+
+all the global state in your application can be stored
+
+inside this one globally accessible store
+
+which we can then update using actions.
+
+And if this sounds familiar,
+
+it's because the useReducer hook
+
+implements a very similar pattern.
+
+So updating state by dispatching actions.
+
+Remember and in fact, the mechanism behind Redux
+
+and useReducer is so similar
+
+that I will assume that you know how to use useReducer
+
+and build the teaching of Redux onto the knowledge
+
+that you already have.
+
+So again, you should have a pretty good understanding
+
+of the useReducer hook in order to move on in this section.
+
+And if you don't
+
+then please go back to that useReducer section first.
+
+But anyway, the idea of updating state
+
+in React and in Redux is always the same.
+
+So in the case of Redux, as soon as we update the store
+
+all the React components that consume some data
+
+from the store will be re-rendered.
+
+So conceptually, if we think about this
+
+Redux is actually quite similar
+
+to combining the Context API with the useReducer hook
+
+as we have done in the World Wise app.
+
+And in fact, many developers even say
+
+that the Context API is a replacement for Redux.
+
+However, the truth is a bit more nuanced than that
+
+as we will discuss by the end of the section
+
+once you have some experience with both of these tools.
+
+Now Redux has a long history
+
+and so today, there are basically two versions of Redux.
+
+So two different ways of writing Redux applications,
+
+but which are totally compatible with each other.
+
+So we have the classic Redux and we have the more modern way
+
+of writing Redux with Redux Toolkit.
+
+And as you would expect, we will learn both of them
+
+in this section starting with classic Redux
+
+so that you get the right foundations.
+
+Okay, now before we move on to learn how Redux works
+
+let's quickly check out when we should actually use Redux.
+
+And let's start with some history.
+
+So historically, a few years back
+
+Redux was used in almost every React app out there
+
+for all global state management needs.
+
+So you really needed to know Redux.
+
+It was as if Redux was even part of React.
+
+Today, however the landscape has changed tremendously,
+
+because there are now many alternatives
+
+as we have already talked about
+
+in the advanced state management lecture
+
+in a previous section.
+
+So today, many apps don't actually need Redux anymore
+
+and also don't use Redux anymore.
+
+And this means
+
+that you might not even need to learn Redux right now.
+
+So why is it included in this course then?
+
+Well, for three big reasons.
+
+First, since Redux has a reputation
+
+for being very hard to learn
+
+this was probably the most requested topic
+
+for this course by my current students.
+
+And I think that this course does teach it pretty well
+
+in an easy to understand way.
+
+Second, when you're working on a team
+
+you will likely work with an older code base
+
+and then you will definitely encounter Redux.
+
+Therefore, you need to learn how it works
+
+even if you don't master it.
+
+And third, some applications do actually require
+
+something like Redux.
+
+And so, let's take a look at when that is
+
+by bringing back this overview from a previous lecture.
+
+So my recommendation
+
+and the recommendation of many experts
+
+is to use a global state management library like Redux,
+
+only when you have lots of global UI state
+
+that you need to update frequently.
+
+And remember that UI state basically means state
+
+that is not fetched from a server
+
+that would be remote state.
+
+So UI state is simply data about the UI itself
+
+or data that doesn't need to be communicated
+
+to an API or so.
+
+And this distinction is really important,
+
+because remember for global remote state
+
+we have many better options nowadays like React Query,
+
+SWR, or even a tool that is kind of included
+
+in modern Redux Toolkit, which is Redux Toolkit Query.
+
+So again, do you need to manage a lot
+
+of non-remote state in your app,
+
+then Redux might be perfect for that.
+
+But the truth is that most global state is actually remote
+
+which is the reason why so many apps
+
+don't use Redux anymore.
+
+But we are actually here to learn Redux
+
+at least if you still think that it's worthwhile.
+
+And I personally think that it is.
+
+And so, let's now quickly look at the mechanics
+
+of how Redux works.
+
+So as I said in the very beginning,
+
+this won't be too hard for you,
+
+because you already know how useReducer works.
+
+And so, let's just quickly review that.
+
+So with useReducer when we want to update state
+
+from an event handler in a component
+
+we start by creating an action.
+
+This action is simply an object that usually contains
+
+a type and a payload,
+
+which is information about how the state should be updated.
+
+We then dispatch that action
+
+to a so-called reducer function.
+
+The reducer takes the action type and the payload,
+
+and together with the current state
+
+calculates the next state, so the new state value.
+
+And to finish as the state updates,
+
+all the components that use that state are re-rendered.
+
+And so, this is really the core mechanism
+
+behind useReducer.
+
+Now Redux works very similarly to this.
+
+The big difference is that we no longer have one reducer
+
+for one component as with useReducer
+
+but we have one reducer for the entire application.
+
+So that one global store that I talked about in the beginning
+
+and that store is then used by all the components
+
+that need access to this global state.
+
+Now, of course, it's not just one reducer
+
+but rather you will typically have many small reducer functions
+
+that handle different parts of the state.
+
+So you could have a reducer for the user,
+
+for the products, for the shopping cart, etc.
+
+So these small reducer functions then compose
+
+the big root reducer that is used by the store.
+
+And this root reducer is responsible for combining
+
+all the states returned by the small reducers
+
+into the one big state object
+
+that makes up the global state.
+
+So when we want to update the state in Redux
+
+we start by creating an action just like with useReducer.
+
+This action is then dispatched to the root reducer,
+
+and the root reducer dispatches the action
+
+to the relevant small reducer function
+
+which then calculates the next state
+
+and returns that state to the root reducer.
+
+So in the end, the root reducer
+
+combines all the states returned by the small reducers
+
+into the one big state object.
+
+And as soon as this state object updates,
+
+all the components that use that state are re-rendered.
+
+And so, this is how Redux works on a high level.
+
+But before we dive into code,
+
+let's actually visualize this a bit more.
+
+So let's consider this very simple application here.
+
+It has a state object that contains
+
+a user and a list of products.
+
+And we have two components in this application.
+
+One component displays information about the user
+
+and the other component displays a list of products.
+
+So when we want to update the user in Redux,
+
+we start by creating an action.
+
+This action has a type, which is "UPDATE_USER"
+
+and a payload, which is the new user data.
+
+We then dispatch this action to the root reducer.
+
+And the root reducer knows that the user state
+
+is handled by the user reducer.
+
+So it dispatches the "UPDATE_USER" action
+
+to the user reducer along with the current user state
+
+and the payload from the action.
+
+The user reducer then calculates the next user state
+
+based on the action type and the payload
+
+and returns this new user state to the root reducer.
+
+Now, let's say we also want to update the list of products.
+
+So we create another action with the type "UPDATE_PRODUCTS"
+
+and the payload, which is the new list of products.
+
+We dispatch this action to the root reducer
+
+which knows that the products state
+
+is handled by the products reducer.
+
+So it dispatches the "UPDATE_PRODUCTS" action
+
+to the products reducer along with the current products state
+
+and the payload from the action.
+
+The products reducer then calculates the next products state
+
+based on the action type and the payload
+
+and returns this new products state to the root reducer.
+
+Now, the root reducer has received the updated user state
+
+and the updated products state
+
+from the user reducer and the products reducer.
+
+It then combines these states into the one big state object
+
+and returns this updated state object.
+
+And as soon as this state object updates,
+
+all the components that use that state are re-rendered.
+
+So this is the flow of updating the state in Redux.
+
+And this visualization really emphasizes
+
+how actions and reducers work together
+
+to update the global state in a predictable way.
+
+Now that we have a good conceptual understanding
+
+of how Redux works, let's move on to the next video
+
+where we will start writing some Redux code
+
+and set up a Redux store

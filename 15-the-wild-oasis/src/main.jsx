@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import UseReducerChallenge from "./useReducerChallenge.jsx";
-// import App from "./App.jsx";
-// import "./index.css";
+// import Test from "./Test";
+import App from "./App";
+// import App from "../reusability/Reuse";
+// import "../reusability/index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UseReducerChallenge />
-    {/* <App /> */}
+    <App />
+    {/* <Test /> */}
   </React.StrictMode>
 );

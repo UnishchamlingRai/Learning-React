@@ -1,0 +1,78 @@
+
+//CHAT GPT EXPLANATION
+Certainly! Let's break down the key points in a simpler way:
+
+1. **Dependency Array in `useEffect`:**
+   - When using `useEffect` in React, you need to specify a list of dependencies. These are the variables that, when changed, should trigger the effect to run.
+   - Initially, the rule was to include every state variable and prop used in the effect in the dependency array.
+
+2. **Reactive Values:**
+   - Reactive values are those connected to state, props, or context, including functions or variables that reference these values.
+   - The goal is to prevent "stale closures" by making sure everything the effect relies on is in the dependency array.
+
+3. **Avoiding Stale Closures:**
+   - To avoid problems, follow strict rules for the dependency array to prevent unnecessary re-renders.
+   - ESLint warnings about missing dependencies are crucial. Don't ignore them.
+
+4. **Avoid Objects or Arrays as Dependencies:**
+   - Using objects or arrays in the dependency array causes the effect to run on every render.
+   - React checks for changes using the triple equality operator, and objects get new references even if content remains the same.
+
+5. **Strategies to Optimize Dependency Arrays:**
+   - Move helper functions inside the effect or memoize them with `useCallback`.
+   - If an object is needed, include only necessary properties (if primitive).
+   - If multiple related reactive values are in the dependency list, consider using `useReducer`.
+   - No need to include `setState` or `dispatch` functions in the dependency list; React ensures their stability.
+
+6. **Effects as a Last Resort:**
+   - Effects should be a last resort, used when no other solution makes sense.
+   - They are an "escape hatch" to step outside of React's usual flow.
+   - Avoid using effects for user events, initial API data fetching, or syncing state changes.
+
+7. **Overused Cases of `useEffect`:**
+   - Effects are often overused for responding to user events, fetching data from APIs on component mount, and synchronizing state changes.
+   - Instead, use event handlers for user events, consider professional data fetching libraries for APIs, and avoid using effects for unnecessary state synchronization.
+
+Remember, these guidelines aim to optimize your React code and help you avoid common pitfalls. It's important to understand them to write efficient and maintainable React applications.
+
+
+
+
+
+
+//SUBTITLE
+Certainly! Here's the text with the numbers removed and only words remaining:
+
+"So we have talked about and used the `useEffect` Hook a lot throughout the course. Now, `useEffect` is probably the most confusing part of React for beginners, which is why I decided that I still need to clarify some more things in the second part of the section and in this video.
+
+And the first thing that I wanna do here is to focus in great detail on the rules and guidelines for specifying a correct dependency array. Now, the first rule that we learned when we first talked about `useEffect` was that every single state variable and prop that's being used in the effect must be included in the dependency array. So this one is pretty clear by now, right? However, this rule is not 100% complete because of two things. First, any context value that a component is subscribed to must also be included in the dependency array. And second, actually, we must include all so-called reactive values in the dependency array as well.
+
+But what is a reactive value? Well, a reactive value is any value that is either state, a prop, a context value, or any other value that itself references one of the reactive values. So examples of that are these two pieces of state, these two variables right here, so because they reference the duration state, and even the `formatDuration` function, because it references the reactive values, minutes and seconds. So basically, all values that are somehow connected to state, props, or context are reactive values.
+
+Now, going back to our dependency array, this means that every single reactive value must be included, which again, includes any functions or variables that reference any other reactive value. And the goal of this is to avoid so-called stale closures that would otherwise occur inside the effect function.
+
+Now, these two rules that we just learned about are pretty strict and tell us exactly what must be included in the dependency array. And so this means that basically the dependencies choose themselves, right? Because if we need to include all reactive values in the list, there's not much to think about. Therefore, you should never, ever ignore that ESLint rule that we've seen time and time again warning us about missing dependencies and ensuring that our dependency arrays are correct at all times.
+
+But of course, you want to understand why you're missing the dependencies that a linter is telling you about and not just blindly follow the tool. And so that's what this video is for. Also, sometimes you might be in an environment where the linter is not available, and so then you really need to know what you're doing.
+
+Okay, and now the final rule is that you should not use objects or arrays as dependencies because when you do so, it seems to work just fine, but in reality, the effect will rerun on every single render. The reason for that is that React checks if dependencies have changed between renders by simply comparing them using the triple equality operator. However, as we already know and already talked about in this section, objects in JavaScript will have a different reference each time that they are recreated. And therefore, even if the content of an object stays the same after a render, React will still see the old and the new object as different and will, therefore, rerun the effect.
+
+Now, if you really do need an object as a dependency, I have some solutions in the next slide. But before we go there, it's important to note that all these rules that we just talked about work in the exact same way for the other hooks that also have dependency arrays, so `useMemo` and `useCallback`.
+
+Okay, so as we just learned, we must include all reactive values in the list of dependencies. React cost is not lying about dependencies. However, in certain situations, including every single dependency in the array can actually cause the effect to run way too often and introduce problems. But again, the solution is not to omit one or more dependencies because that would be lying to React. Instead, we can use one of the strategies that can make some of the dependencies unnecessary, and so then we can remove those unnecessary dependencies from the array.
+
+So first off, when you're dealing with helper functions as dependencies, the easiest way to remove the dependency is to just move the function right into the effect. Because if the function is inside the effect, then it's no longer a dependency of the effect. However, if you can't do that, because you might need the same function in multiple places, you can try to memoize it with `useCallback`. Also, if the function is not a reactive value itself, so if it doesn't use any reactive values inside the code, then you can just move it entirely out of the component because it's not really a dependency anyway. And so by doing this, the function then doesn't need to be recreated on every render.
+
+Next up, if you want to use an object as a dependency, you can try to not include the entire object, but only the properties that you actually need inside the effect. And you can do this as long as these properties are primitive values, like strings or numbers. However, if for some reason that doesn't work for your specific situation, you can try one of the strategies that I mentioned for functions as they are quite similar.
+
+And finally, we have two other strategies. First, if you find yourself in a situation where your dependency list includes multiple reactive values that are related to one another, you can try using a reducer with `useReducer`. So sometimes a reducer can really be like a secret weapon that makes all your dependency problems completely go away. Also, there is no need to include the `setState` function from `useState` or the `dispatch` function from `useReducer` in the dependency list because React guarantees that these are stable between renders.
+
+And now to really wrap up this part about `useEffect`, let me give you a maybe shocking reality about effects, which is that effects should actually only be used as a last resort when no other solution really makes sense. That's the reason why React calls effects an escape hatch to step outside of React. Now, I'm telling you this because when hooks were first introduced into React, the `useEffect` Hook was being overused a lot and also used in the wrong places. Now, I'm not really gonna go deep into this right now, but here are just the three biggest use cases where effects are still being overused and that you should avoid as a beginner.
+
+The first one is to use an effect to respond to a user event like a click or a keystroke. So as we learned before, a user event should whenever possible be handled with an event handler function and not with an effect, even if the handler does create a side effect. Next, fetching data from an API when the component first mounts is another overused application of `useEffect`. Now, we did do this all the time in this course, but that's because we were still learning and building really small applications. And in fact, in smaller apps, this is completely fine, but in a more real-world application, it's best to use a professional data fetching library like React Query. And finally, effects are overused a lot to synchronize state changes with one another, which means to use `useEffect` to listen for a state change only to set another piece of state. And the problem with this is that it will create multiple re-renders, which can be problematic.
+
+Now, actually,
+
+ we are gonna do just this in the current project, but in our case, it's just gonna be because it'll highly simplify the code, as you will see. So basically, all these suggestions need to be taken with a grain of salt as always. So really, in fact, everything is acceptable in certain situations and in certain doses. But generally speaking, instead of using an effect to set state based on another state, you should rely on derived state and event handlers."
+
+I hope this helps! Let me know if you have any further requests.

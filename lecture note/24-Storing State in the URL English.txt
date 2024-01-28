@@ -1,0 +1,87 @@
+EXPLAINATION
+Sure, let's break it down in simpler terms:
+
+We're going to talk about a cool thing called React Router. It helps us manage different parts of our website or app.
+
+Now, we want to make it even cooler by putting some information in the website address (URL). This information is like notes that the website can use in different places.
+
+Usually, when we want to remember something in a website, we use a tool called "useState". But now, we can also use the website address to remember things.
+
+For example, think about a shopping website. Imagine you're looking at blue shoes, and you want to share that exact page with your friend. If the website remembers that you like blue shoes in the URL, then your friend will see the same blue shoes when they open the link you shared.
+
+So, why is this useful?
+
+1. **Easy Access Everywhere:** If we put notes in the website address, all parts of the website can see it. Before, we had to pass notes from one part to another, but now every part can read the notes from the website address.
+
+2. **Sharing Information:** Imagine you're looking at a page with filters, like sorting by price or color. If we put these filters in the website address, we can share the exact same page, with the same filters, just by sharing the link. No need to remember the filters separately!
+
+3. **Bookmarking:** You know how you can save a page in your browser? If we save the page with the notes in the website address, it's like saving the page with all the information. So when you open it later, it's just like you left it!
+
+Now, how do we do this with React Router?
+
+We use something called "Params" and "Query string". Params are like specific notes for each part of the website, and the Query string is like a general note that everyone can see.
+
+For example, if you're looking at a page about a city, the city's name can be a Param. If you're looking at a map, the map's position (like latitude and longitude) can be in the Query string.
+
+So, in simple terms, we're just making our website smarter by using the website address to remember things. In the next videos, we'll practice and make it all clear!
+
+
+
+
+
+SUBTITLE
+Now it's time to take the usefulness of React Router to the next level by actually storing state in the URL so that we can use it in different places of the application.
+
+But you might be wondering, "Storing state in the URL, don't we actually use the useState hook to manage state?" Well, that's true most of the time.
+
+The URL is actually also an excellent place to store state, especially UI state. And with UI state, I mean state that affects what the UI looks like. So things like an open or closed panel, or a currently applied list sorting order or filter.
+
+These examples of state are great candidates to be stored in the URL and managed by the URL with React Router.
+
+"Now, why would we want to do that?" You might be asking. And that's again an excellent question.
+
+So the first reason is that placing state in the URL is an easy way to store state in a global place that is easily accessible to all components in the app.
+
+Before, if we wanted state to be accessible everywhere, we would have to store it in a parent component and then pass it all the way down to all child components using props.
+
+But if we place state in the URL, we can easily just read the value from there, wherever the component is in the component tree.
+
+So basically we can move some state management from React to the URL.
+
+Also, placing state in the URL is, in many situations, a good way to pass data from one page into the next page without having to store that data in some temporary place inside the app.
+
+And finally, another amazing reason why we should place UI state right in the URL is that doing so makes it possible to bookmark or to share the page with the exact UI state that the page had at the time that we are sharing or bookmarking it.
+
+For example, in an online shop, we might be filtering products by color and by price. And if that filter is saved in the URL, we can then share the page with someone, and they will see the exact same filters applied to the list of products.
+
+So that's really helpful and enables a great user experience.
+
+Now, okay but enough talking, let's see how we can actually do this using React Router.
+
+So in a URL like this, we already know that we have a path, for example, app/cities, and we can consider this part state because it corresponds to the component that is currently being displayed.
+
+But this part is not really useful for state management in the way that they have been describing.
+
+So for actually storing state in the URL, we use Params or the Query string.
+
+Now Params, which stands for parameters, are very useful to pass data to the next page while the Query string is useful to store some global state that should be accessible everywhere.
+
+But to understand this a bit better, let's look at this example in more detail.
+
+So this URL that we just looked at corresponds to this view, and in the URL, you see that the Param is Lisbon.
+
+And so because of that, the page that was loaded is exactly about the city of Lisbon.
+
+So by creating a link that points to a URL with this Param, we are able to pass the city name to the next page whenever the user clicks on that link.
+
+And of course, if the URL had another city name as the Param, let's say Berlin, then the loaded page would be about Berlin.
+
+And so that's the power of Params but there is more because we also have the Query string, and it works in a very similar way.
+
+So in this example, we store the LAt and LNG pieces of state in a Query string which corresponds to disposition on the map.
+
+And the same is true, of course, for the other URL. So each of these cities has, of course, a unique location, and that location is reflected right in the URL.
+
+And so in this example, we leverage the power of the URL to manage state in an effective way by reading the city name and the GPS location from the URL instead of using application state inside React.
+
+Now, this probably looks all a bit confusing, which is why we're gonna have plenty of opportunity to practice all this throughout the rest of the course starting in the next video.

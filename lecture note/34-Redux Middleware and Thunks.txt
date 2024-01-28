@@ -1,0 +1,58 @@
+//CHAT GPT EXPLAINATION
+Sure, let's break it down into simpler terms:
+
+**Introduction to Redux:**
+- Redux is a tool used in web development to manage the data in an application.
+- Sometimes, we need to do more complex things with our data, and that's where Middleware comes in.
+
+**Why Middleware is Needed:**
+- Imagine you want to get information from an external source, like an online database.
+- In Redux, the usual way of doing things doesn't allow us to easily handle such external tasks.
+
+**Challenges:**
+- We can't directly fetch data in the part of Redux that manages changes to our data (reducers).
+- Fetching data inside the part of our code that manages the user interface (components) is messy and not recommended.
+
+**Enter Middleware:**
+- Middleware is like a helper that sits in between different parts of Redux.
+- It helps us do special things, like making asynchronous (not instant) calls to get data.
+
+**How Middleware Works:**
+- Normally, when we want to do something, we send an action in Redux, and it quickly updates the data.
+- With Middleware, we can do extra things before the data gets updated.
+- This is useful for tasks like fetching data from an external source or doing other special actions.
+
+**Example using Redux Thunk:**
+- Redux Thunk is a popular Middleware for handling asynchronous tasks.
+- Imagine you want to get information from an online database and use it in your app.
+
+**Step-by-Step:**
+1. You send a special kind of action called a "Thunk" that says, "Hey, I'm going to do something that takes time."
+2. Thunk Middleware sees this and lets you do your task (like fetching data).
+3. Once the task is done, you send the actual action with the data.
+4. Now, Redux updates the data with the new information.
+
+**Summary:**
+- Middleware, like Redux Thunk, helps us handle special tasks, like getting data from the internet.
+- It keeps our code clean and organized.
+- It's a bit like having a helper that manages extra jobs for us in the world of Redux.
+
+**In Conclusion:**
+Middleware is the secret sauce that makes Redux more powerful, allowing us to easily handle complex tasks like fetching data from the web while keeping our code neat and tidy.
+
+
+
+//SUBTITLE
+Let's now take a look at how we can extend the functionality of Redux by using something called Middleware.
+
+So let's say that we wanted to make an asynchronous call to some API. Where could we actually do that in Redux? Well, we can definitely not make the API call inside a reducer because reducers need to be pure functions with no side effects. By itself, a Redux store doesn't know anything about performing asynchronous logic like this. It only knows how to synchronously dispatch actions and update the state. Therefore, any asynchronous operations like that API call need to happen outside a reducer.
+
+So, should we maybe fetch the data inside the component and then dispatch an action to the store with that received data? Well, that is actually possible, but it's not an ideal solution. The reason for that is that we usually want to keep our components clean and free of data fetching, and we also want our important data fetching logic encapsulated somewhere, all in one place, and not have it spread all over the application. Therefore, fetching data inside components, like we have been doing all this time, is not ideal.
+
+But if not in the store and not in the components, then where do we perform asynchronous actions? Well, that's where Middleware comes into action. In Redux, Middleware is basically a function that sits between the dispatching and the store. This means that Middleware allows developers to run some code after dispatching an action but before that action reaches the reducer in the store. So again, usually after we dispatch, the action immediately reaches the reducer, and the state is updated. But with Middleware, we can do something with the action before that action actually gets into the reducer. And therefore, this is the perfect place for our asynchronous API call, as well as other operations, such as setting timers, logging to the console, or even pausing and canceling the action altogether. So in essence, Middleware is the go-to place for side effects in the Redux cycle.
+
+Okay, so now that we know what Middleware is, where does Middleware actually come from? Well, we can write Middleware functions ourselves, but usually, we just use some third party package. And in the case of asynchronous operations, the most popular Middleware in Redux is called Redux Thunk.
+
+So let's see how Thunks work by analyzing what happens to this action that we have seen before. Now that we have this Thunk Middleware in place, the action will no longer be immediately dispatched but will first get into the Middleware. So into the Thunk, in this case. Then we can start fetching some data inside the Thunk, but it could also be some other asynchronous operation. Let's stick to data fetching here. Now, as soon as the data arrives, we place it into the action's payload, and then we finally dispatch the action into the store, where the state will then immediately get updated. So basically, the Thunk allows Redux to wait before dispatching the fetch data into the store. Or in other words, we have used the Thunk in order to defer dispatching into the future. To the point at which the data that we need has actually arrived.
+
+All right, but this is, of course, a lot easier to understand in practice, so let's implement this in our application now.

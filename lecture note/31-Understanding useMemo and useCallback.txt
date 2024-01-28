@@ -1,0 +1,52 @@
+
+CHAT GPT EXPLANATION
+Certainly! Let's break it down:
+
+Imagine you're building something with React, a popular tool for making web applications. Now, when you create parts of your app (components), sometimes they update or change. One issue is that if you're not careful, React might redo unnecessary work even if things didn't really change.
+
+So, to avoid redoing unnecessary work, React gives us two helpful tools: `useMemo` and `useCallback`. These tools help us tell React, "Hey, remember this stuff so you don't have to redo everything if it hasn't changed."
+
+Let's compare it to a recipe book:
+
+1. **Memoization (Remembering stuff):**
+   - Imagine you're baking cookies. If you memorize the recipe (how to make cookies), you won't need to look it up every time you bake. It's the same with `useMemo` – you tell React to remember certain things (like values or results) so it doesn't redo them unless necessary.
+
+2. **Dependencies (Ingredients):**
+   - Now, imagine you're baking cookies, and you need flour, sugar, and eggs. These are like the "dependencies" for your cookies. If any of these ingredients change, you might need to redo some steps. `useMemo` works the same way – it watches certain things, and if they change, it knows it might need to redo some work.
+
+3. **Avoiding Redoing Work (Wasted Effort):**
+   - Let's say you're making a shopping list for your recipes. You don't want to keep writing the same items over and over. `useMemo` helps you avoid redoing the same work (like recalculating or creating objects) when it's not needed.
+
+4. **Use Cases (When to Apply):**
+   - You might use these tools when:
+      - **Dealing with Props (Ingredients):** If your components use objects or functions as ingredients (props), `useMemo` and `useCallback` help avoid unnecessary redoing of work.
+      - **Expensive Calculations (Costly Steps):** If your app involves complex calculations, these tools help you avoid doing them over and over when not needed.
+      - **Hooks and Infinite Loops (Avoiding Traps):** In certain situations with hooks, these tools help prevent endless loops of redoing things.
+
+Remember, like in cooking, you don't want to use these tools for everything – only when it makes sense. They're like secret ingredients to make your app run more efficiently!
+
+
+
+
+
+
+//SUBTITLE
+Sure, let's convert the spoken words into text:
+
+---
+
+In the last lecture we found a situation where the memo function didn't actually work as expected. And so let's now understand why that happens and learn about the solution. And let's start from what we already know. So we know that in React whenever a component instance re-renders, everything in there is recreated. So all values are always created again, and that includes objects and functions that are defined within the component. So a new render gets new functions and new objects, even if they are the exact same ones as before. We also know that in JavaScript two objects or functions that look the same, so that are exactly the same code, are actually different unique objects. And the classic example here is that an empty object is different from another empty object.
+
+Now, from these two pieces of information, we can understand that if we pass a function or an object to a child component as a prop, that child component will always see them as new props whenever there is a re-render. And if props are different between re-renders, then memo will simply not work, so it will not do its job. So in summary, if we memorize a component but then give it objects or functions as props, the component will always re-render anyway because it'll always see these props as new props, even when they actually look exactly the same.
+
+Okay, but there must be some kind of solution, right? Well, of course there is. So we can make objects and functions stable so we can actually preserve them between renders by memorizing them as well. And to do that, React gives us two more hooks. UseMemo and useCallback. So we can use useMemo to memorize any value that we want to preserve between renders and useCallback to memorize functions between renders. And I will just use the word values for everything here because useCallback is actually just a special case of useMemo.
+
+But anyway, what does memorization of values actually look like? Well, the idea is similar to the memorization that we just talked about before. So whatever value that we pass into useMemo or useCallback will basically be stored in memory and that cached value will then be returned in future re-renders. So it will be preserved across renders as long as the inputs stay the same. Now in the case of useMemo and useCallback, these inputs that I just mentioned are called dependencies. So just like the useEffect hook, useMemo and useCallback also have a dependency array. And this is how it works. Whenever one of the dependencies change, the value will no longer be returned from the cache but will instead be recreated. So this is very similar to the memo function where a component gets recreated whenever the props change. It's just a different thing that we're memorizing here and a different way of specifying the inputs. But the idea is the same. And this will all become quite clear once we start writing the code. But for now, let's visualize what we just learned.
+
+So the regular behavior in React when we do not memorize a certain value is, of course, that a new value is created whenever the component re-renders. On the other hand, when we do memorize the value then no new value is created on re-render and the cached value is returned instead. And so like this, the value will stay exactly the same so it will be stable across renders. However, this is only true if the dependencies that we specify in the dependency array don't change. If they do change, then a new value is actually created as if the memorization has never happened.
+
+Okay, now this all sounds great but when do we actually need this? Well, remember that we started this lecture by saying that we need to make objects or functions stable in order to actually make the memo function work. In other words, if props are objects or functions, we need to memorize these props in order to prevent wasted renders. So that's what the very first slide of the lecture was all about, right? And this use case is probably the biggest use case for useMemo and useCallback. And it made it very easy to understand why there is a need for these hooks. However, there are actually two additional use cases.
+
+So the second use case is to avoid expensive recalculations on every render. For example, you might have a derived state that is calculated from an array of 100,000 items. Now, if your component re-renders all the time, then React needs to do this expensive calculation over and over again each time there is a render. And so to fix this, you can simply preserve the results of that calculation across renders using useMemo. And so then React doesn't have to calculate the same thing time and time again.
+
+Finally, another use case is memorizing values that are used in the dependency array of other hooks, for example, in order to avoid infinite useEffect loops. Now, just like with the memo function it's important to not overuse these hooks. So you should probably only use them for one of these three use cases and not start memorizing every single object and function everywhere. But anyway, with all this being said it's time to finally try this out with code.

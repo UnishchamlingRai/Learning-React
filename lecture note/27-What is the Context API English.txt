@@ -1,0 +1,62 @@
+CHATGPT EXPLAINATION
+Sure, let's break down the information in a simpler and more explanatory way:
+
+Imagine you're building a big house with many rooms, and each room needs to know something important, like the number of people in the house. Instead of telling each room individually, you want a system to make it easy for every room to know this information without a lot of hassle.
+
+That's where the Context API in React comes in. It's like a messenger that helps share important information (like the number of people) with all the rooms (components) in your house (app).
+
+Here's how it works:
+
+1. **Provider:**
+   - Think of it as a special messenger who knows the number of people in the house.
+   - This messenger can go anywhere in the house (component tree) but is often placed at the very top.
+   - The messenger carries the information (like the number of people) with them.
+
+2. **Value:**
+   - The information the messenger is carrying. In our example, it's the number of people.
+   - This information can include different things you want to share, like colors, names, or anything your components need.
+
+3. **Consumers:**
+   - These are like the rooms that want to know the number of people.
+   - They subscribe to the messenger (Provider) to get updates.
+   - When the number of people changes (the context value is updated), the messenger tells all the rooms, and they can adjust accordingly.
+
+So, in simple terms, the Context API helps components share important information without the need to pass it down step by step. It's like having a messenger who knows everything and can tell everyone when something changes.
+
+This makes managing information in your app much easier, especially when you have lots of components that need to know the same things.
+
+
+
+
+SUBTITLE
+Let's start this section by understanding what the Context API is and what problem it solves. And we're actually gonna start with the problem that the Context API solves.
+
+So let's say that in our application, we need to pass some state into multiple deeply nested child components just like in this fictional example. In this application, the components B and F both need access to the count state variable.
+
+And so that's the task that we need to solve. Now, the first solution that comes to mind is to simply pass the state variable as props all the way down until it reaches the components that need the count state. However, this then creates a new problem because passing props down through multiple levels of the tree can quickly become cumbersome and inconvenient.
+
+And we actually talked about exactly this problem before, a problem that we call prop drilling. Now, back then I told you that one good solution to prop drilling is to compose components in a better way. However, doing so is not always possible.
+
+And so component composition with the children prop as we have learned before doesn't always solve this problem. So instead, what we need is actually a way of directly passing the state from a parent component into a deeply nested child component.
+
+So that would immediately solve the problem, right? Well, it turns out that React has actually thought of that and has given us the Context API to do just that.
+
+So the Context API basically allows components everywhere in the tree to read state that a context shares. But let's now look at that in a bit more detail.
+
+So first of all, the Context API is a system to pass data throughout the application without having to manually pass props down the component tree. It essentially allows us to broadcast global state, so state that should be available to all the child components of a certain context.
+
+Now, in order to learn about the different parts of this system, let's bring back the component tree from the previous slide.
+
+So the first part of the Context API is the provider, which is a special React component that gives all child components access to a so-called value. This provider can sit everywhere in the component tree, but it's common to place it at the very top.
+
+Now, this value that I was talking about is the data that we want to make available, so the data that we want to broadcast through the provider. And so we pass this value into the provider. Usually, this value contains one or more state variables and even some setter functions.
+
+Finally, we have consumers, which are all the components that read the value that we passed into the provider. So in other words, consumers are the components that subscribe to the context, and so they're able to read the value from the context, and we can create as many consumers as we want for any context provider.
+
+Now okay, so that's how the Context API works. But what happens when the context value actually changes, so when it gets updated? Well, this is where the interesting part begins.
+
+So whenever the context value is updated, all consumers will automatically be re-rendered, so all the components that are reading the context value. So, again, whenever the value that is shared is updated in some way, the provider will immediately notify the consumers about the value change, and it'll then re-render those components.
+
+And so this means that now we have a new way in which component instances can be re-rendered. We already knew that state updates re-render a component instance, but now we know that an update to a context value also re-renders a component as long as that component is subscribed to that exact context.
+
+All right, and that is the fundamentals of the Context API and how it solves the prop drilling problem. We can create as many contexts as we want in our application and place them wherever we want in the component tree. And so all this allows for new and interesting ways of managing state as we're gonna explore throughout this section.
