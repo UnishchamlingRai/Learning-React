@@ -1,9 +1,10 @@
-import CheckoutButton from 'features/check-in-out/CheckoutButton';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import Button from 'ui/Button';
-import { Flag } from 'ui/Flag';
-import Tag from 'ui/Tag';
+// import CheckoutButton from "features/check-in-out/CheckoutButton";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Button from "../../ui/Button";
+import { Flag } from "../../ui/Flag";
+import Tag from "../../ui/Tag";
+import CheckoutButton from "../check-in-out/CheckoutButton";
 
 const StyledTodayItem = styled.li`
   display: grid;
@@ -27,17 +28,17 @@ const Guest = styled.div`
   font-weight: 500;
 `;
 
-function TodayItem({ stay }) {
-  const { id, status, guests, numNights } = stay;
+function TodayItem({ activity }) {
+  const { id, status, guests, numNights } = activity;
 
   const statusToAction = {
     unconfirmed: {
-      action: 'arriving',
-      tag: 'green',
+      action: "arriving",
+      tag: "green",
       button: (
         <Button
-          variation='primary'
-          size='small'
+          variation="primary"
+          size="small"
           as={Link}
           to={`/checkin/${id}`}
         >
@@ -45,9 +46,9 @@ function TodayItem({ stay }) {
         </Button>
       ),
     },
-    'checked-in': {
-      action: 'departing',
-      tag: 'blue',
+    "checked-in": {
+      action: "departing",
+      tag: "blue",
       button: <CheckoutButton bookingId={id} />,
     },
   };

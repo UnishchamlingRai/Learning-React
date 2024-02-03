@@ -12,6 +12,12 @@ export default function App() {
         hideIncrease={false}
         hideDecrease={false}
       />
+      <Counter>
+        <Counter.Decrease icon="-" />
+        <Counter.Label>This my super reusable Compount component</Counter.Label>
+        <Counter.Increase icon="+" />
+        <Counter.Count />
+      </Counter>
     </div>
   );
 }

@@ -3,12 +3,28 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import useLogin from "./useLogin";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("unish@gmail.com");
+  const [password, setPassword] = useState("unishrai123@");
+  const { login, isLoading } = useLogin();
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("hello login");
+    if (!email || !password) return;
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          setEmail("");
+          setPassword("");
+        },
+      }
+    );
+  }
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -32,7 +48,7 @@ function LoginForm() {
         />
       </FormRow>
       <FormRow orientation="vertical">
-        <Button size="large">Login</Button>
+        <Button size="large">{isLoading ? <SpinnerMini /> : "Login"}</Button>
       </FormRow>
     </Form>
   );

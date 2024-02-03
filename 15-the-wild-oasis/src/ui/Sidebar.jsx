@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
+import { Uploader } from "../data/Uploader";
+import { useGetCurrentUser } from "../features/authentication/useGetCurrentUser";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -14,10 +16,15 @@ const StyledSidebar = styled.aside`
 `;
 
 function Sidebar() {
+  // const {} = use;
+  const { user } = useGetCurrentUser();
+  const { fullName } = user.user_metadata;
+
   return (
     <StyledSidebar>
       <Logo />
       <MainNav />
+      {fullName === "Unish Rai" ? <Uploader /> : ""}
     </StyledSidebar>
   );
 }

@@ -6,3 +6,9 @@ import eslint from "vite-plugin-eslint";
 export default defineConfig({
   plugins: [react(), eslint()],
 });
+
+// export default {
+//   optimizeDeps: {
+//     include: ['date-fns']
+//   }
+// }
