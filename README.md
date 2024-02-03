@@ -19,3 +19,10 @@ Learning React is very exciting. While learning React, I made some projects:
 9. **The Wild Oasis**: This is a comprehensive project where I used React Query for remote state management, Styled Components for styling, React Hook Form for form management and validation, Supabase for backend services, and Recharts library for creating beautiful charts. Additionally, I learned about advanced compound component patterns, authentication, dark mode, and professional application planning and development techniques.
 
 These projects have helped me gain a deep understanding of React and its ecosystem while honing my skills in frontend development.
+## you can see the demo of the some project by this link
+1) **The Wild Oasis**: https://thewildoasis12.netlify.app/login
+2) **Fast React Pizza**: https://app.netlify.com/sites/fast-order-pizza123/overview
+3) **Travel List**: https://app.netlify.com/sites/fara-way-travel-list/overview
+4) **Eat-n-split**: https://eat-and-split-nu.vercel.app/
+5) **usePopcorn**: https://taupe-salamander-311e24.netlify.app/
+6) **Quiz App**: https://react-quize-bice.vercel.app/
