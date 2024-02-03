@@ -2,7 +2,8 @@ import styled from "styled-components";
 import ButtonIcon from "../ui/ButtonIcon";
 import { HiOutlineUser } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
-import LogOut from "../features/authentication/Logout";
+// import LogOut from "../features/authentication/Logout";
+import LogOut from "../features/authentication/LogOut";
 import DarkModeToggle from "./DarkModeToggle";
 // import DarkModeToggle from "./DarkModeToggle";
 

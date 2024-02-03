@@ -16,6 +16,9 @@ const LoginLayout = styled.main`
 function Login() {
   return (
     <LoginLayout>
+      <h1>Login with this user </h1>
+      <p>email: test@gmail.com</p>
+      <p>password: teast1234</p>
       <Logo />
       <Heading as="h4">Login in you account</Heading>
       <LoginForm />

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
@@ -9,6 +11,7 @@ import ProgressResult from "./ProgressResult";
 import FinishedQuiz from "./FinishedQuiz";
 import Footer from "./Footer";
 import Timer from "./Timer";
+import question from "./questions.json";
 const TIME_PER_QUESTION = 30;
 const initialState = {
   questions: [],
@@ -95,8 +98,9 @@ export default function App() {
   useEffect(function () {
     async function fetchData() {
       try {
-        let res = await fetch("http://localhost:9000/questions");
-        res = await res.json();
+        // let res = await fetch("http://localhost:9000/questions");
+        // res = await res.json();
+        let res = question.questions;
         // console.log("Response:", res);
         dispatch({ type: "startFetching", payload: res });
       } catch (error) {
@@ -106,6 +110,7 @@ export default function App() {
     }
     fetchData();
   }, []);
+  // console.log("questioon:", question.questions);
   return (
     <div className="app">
       <Header />
