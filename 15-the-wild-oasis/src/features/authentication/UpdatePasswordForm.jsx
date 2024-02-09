@@ -29,9 +29,10 @@ function UpdatePasswordForm() {
         <Input
           type="password"
           id="password"
+          placeholder="this field is disabled for some reason"
           // this makes the form better for password managers
           autoComplete="current-password"
-          disabled={isUpdating}
+          disabled={true}
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -47,10 +48,11 @@ function UpdatePasswordForm() {
         error={errors?.passwordConfirm?.message}
       >
         <Input
+          placeholder="this field is disabled for some reason"
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"
-          disabled={isUpdating}
+          disabled={true}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
@@ -62,7 +64,7 @@ function UpdatePasswordForm() {
         <Button onClick={handleReset} type="reset" variation="secondary">
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        <Button disabled={true}>Update password</Button>
       </FormRow>
     </Form>
   );

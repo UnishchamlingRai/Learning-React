@@ -1,11 +1,11 @@
-#Day38ofClg_askmitra #Clg_askmitra60days
-Hello, this is Unish Rai. As you all know I'm participating in the ITSNP X Askmitra 60-days challenge and Today is my 38th day. I encourage everyone to begin their 60 days by learning anything they choose; it will be fun. I’m excited already. If you want to start learning more about this program here: https://clg.askmitra.com 
-Here's what I learned today.
+#Day39ofClg_askmitra #Clg_askmitra60days
+Hello, this is Unish Rai. As you all know I'm participating in the ITSNP X Askmitra 60-days challenge and Today is my 39th day. I encourage everyone to begin their 60 days by learning anything they choose; it will be fun. I’m excited already. If you want to start learning more about this program here: https://clg.askmitra.com 
+
 Today's Learnings:
-1)Overview of Reusability in React
-2)The Render Props Pattern
-3)The Compound Component Pattern
-4)Building a Modal Window Using a React Portal
+Today I finished making this full-stack project. The tech stack used to build this project includes React for the frontend, React Context for UI state management, React Query for remote state management, Recharts for creating beautiful charts, Styled Components for styling, React Hook Form for forms, and Supabase for the backend. 
+Project demo link:https://thewildoasis12.netlify.app/login
+
+
 For further insights, you can view my code at github repo:
 https://github.com/UnishchamlingRai/Learning-React
 
@@ -15,13 +15,11 @@ Visit My portfolio:https://unishrai.netlify.app/
 
 
 //For linkedin
-Hello everyone, Today Day 38th of my 60-day React Learning Challenge, and the journey is getting more exciting! 
+Hello everyone, Today Day 39th of my 60-day React Learning Challenge, and the journey is getting more exciting! 
 
 Today's Learnings:
-1)Overview of Reusability in React
-2)The Render Props Pattern
-3)The Compound Component Pattern
-4)Building a Modal Window Using a React Portal
+Today i finished making this  a full-stack project. The tech stack used to build this project includes React for the frontend, React Context for UI state management, React Query for remote state management, Recharts for creating beautiful charts, Styled Components for styling, React Hook Form for forms, and Supabase for the backend. 
+Project demo link:https://thewildoasis12.netlify.app/login
 
 For further insights, you can view my code at github repo:
 https://github.com/UnishchamlingRai/Learning-React
@@ -29,7 +27,7 @@ https://github.com/UnishchamlingRai/Learning-React
 Github Account Link:https://lnkd.in/dezG-waY
 My portfolio:https://lnkd.in/drcpB6Zu
 
-#ReactLearningChallenge #ReactJS #WebDevelopment #CodingJourney #LearnToCode #DeveloperCommunity #Day38
+#ReactLearningChallenge #ReactJS #WebDevelopment #CodingJourney #LearnToCode #DeveloperCommunity #Day39
 
 
 //https://prodigyinfotech.dev/
