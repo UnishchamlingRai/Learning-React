@@ -20,6 +20,7 @@ const content = [
 ];
 
 export default function App() {
+  console.log("hello app");
   return (
     <div>
       <Tabbed content={content} />
@@ -29,6 +30,7 @@ export default function App() {
 
 function Tabbed({ content }) {
   const [activeTab, setActiveTab] = useState(0);
+  console.log("RENDER TABBED");
 
   return (
     <div>
@@ -42,16 +44,18 @@ function Tabbed({ content }) {
       {activeTab <= 2 ? (
         <TabContent
           item={content.at(activeTab)}
-          key={content[activeTab].summary}
+          key={content.at(activeTab).summary}
         />
       ) : (
         <DifferentContent />
       )}
-      {/* {TabContent({ item: content.at(0) })} */}
+      {/* {TabContent({ item: content[0] })} */}
     </div>
   );
 }
-
+// console.log(<DifferentContent test={"test"} />);
+// console.log(DifferentContent({ fullTest: "test" }));
+// console.log(<Tabbed />);
 function Tab({ num, activeTab, onClick }) {
   return (
     <button
@@ -66,27 +70,26 @@ function Tab({ num, activeTab, onClick }) {
 function TabContent({ item }) {
   const [showDetails, setShowDetails] = useState(true);
   const [likes, setLikes] = useState(0);
-  console.log("REDNER");
+  console.log("RENDER");
   function handleInc() {
     setLikes(likes + 1);
   }
-
-  function handleTripleInc() {
-    setLikes((likes) => likes + 1);
-    console.log(likes);
-    setLikes((likes) => likes + 1);
-    console.log(likes);
-    setLikes((likes) => likes + 1);
-    console.log(likes);
-  }
   function handelUndo() {
-    setLikes(0);
     setShowDetails(true);
+    setLikes((like) => {
+      // console.log(like);
+      return 0;
+    });
     console.log(likes);
   }
 
-  function undoIn2Second() {
-    setTimeout(handelUndo, 3000);
+  function tipleLike() {
+    setLikes((like) => {
+      console.log(like);
+      return like + 1;
+    });
+    setLikes(likes + 1);
+    setLikes(likes + 1);
   }
 
   return (
@@ -102,19 +105,17 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button onClick={handleTripleInc}>+++</button>
+          <button onClick={tipleLike}>+++</button>
         </div>
       </div>
 
       <div className="tab-undo">
         <button onClick={handelUndo}>Undo</button>
-        <button onClick={undoIn2Second}>Undo in 2s</button>
+        <button>Undo in 2s</button>
       </div>
     </div>
   );
 }
-// console.log(<DifferentContent test={45} />);
-// console.log(DifferentContent());
 
 function DifferentContent() {
   return (

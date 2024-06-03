@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const messages = [
   "Learn React ⚛️",
   "Apply for jobs 💼",

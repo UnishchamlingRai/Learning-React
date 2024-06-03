@@ -1,8 +1,10 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 // import StarRating from "./StarRating";
 
-import App from "./App.jsx";
+// import App from "./App.jsx";
+import App from "./Hello";
 import "./index.css";
 // import CurrencyConverter from "./CurrencyConverter.jsx";
 function Test() {
